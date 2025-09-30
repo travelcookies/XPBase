@@ -25,13 +25,17 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'roc-mini' => '18768172607@126.com' }
-  s.source           = { :git => 'https://github.com/roc-mini/XPBase.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/travelcookies/XPBase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'XPBase/Classes/**/*'
-  
+  # s.source_files = 'XPBase/Classes/**/*'
+
+  s.subspec 'Extensions' do |ss|
+    ss.source_files = 'XPBase/Classes/Extensions'
+  end
+
   # s.resource_bundles = {
   #   'XPBase' => ['XPBase/Assets/*.png']
   # }

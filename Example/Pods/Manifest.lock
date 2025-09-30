@@ -4,7 +4,9 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - XPBase (0.1.0)
+  - XPBase (0.1.0):
+    - XPBase/Extensions (= 0.1.0)
+  - XPBase/Extensions (0.1.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -20,7 +22,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  XPBase: d17da2b0ec92bbba5c22fcfd718309bbef9ad395
+  XPBase: 2a287bf8cabad98404243c95829dfdceb5bbaf09
 
 PODFILE CHECKSUM: 3657530ed8e0ae8b46e406de8dbe42929c87eec6
 
