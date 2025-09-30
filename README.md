@@ -17,12 +17,12 @@ XPBase is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'XPBase'
+pod 'XPBase', :git => 'https://github.com/travelcookies/XPBase.git'
 ```
 
 ## Author
 
-roc-mini, 18768172607@126.com
+cjdesyue@126.com
 
 ## License
 
