@@ -1,0 +1,22 @@
+{
+  "name": "XPBase",
+  "version": "0.1.0",
+  "summary": "A short description of XPBase.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/roc-mini/XPBase",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "roc-mini": "18768172607@126.com"
+  },
+  "source": {
+    "git": "https://github.com/roc-mini/XPBase.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "XPBase/Classes/**/*"
+}
