@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/roc-mini/XPBase'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'roc-mini' => '18768172607@126.com' }
+  s.author           = { 'roc-mini' => 'cjdesyue@126.com' }
   s.source           = { :git => 'https://github.com/travelcookies/XPBase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -36,11 +36,22 @@ TODO: Add long description of the pod here.
     ss.source_files = 'XPBase/Classes/Extensions'
   end
 
+
+  s.subspec 'API' do |ss|
+    ss.source_files = 'XPBase/Classes/API'
+    ss.source_files = 'XPBase/Classes/API/**/*'
+  end
+
   # s.resource_bundles = {
   #   'XPBase' => ['XPBase/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+
+  s.dependency 'Alamofire', '~> 5.10.2'
+  s.dependency 'Moya'
+  s.dependency 'HandyJSON'
+  s.dependency 'SnapKit'
+
 end

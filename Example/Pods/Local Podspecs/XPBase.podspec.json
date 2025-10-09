@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "roc-mini": "18768172607@126.com"
+    "roc-mini": "cjdesyue@126.com"
   },
   "source": {
     "git": "https://github.com/travelcookies/XPBase.git",
@@ -18,10 +18,29 @@
   "platforms": {
     "ios": "10.0"
   },
+  "frameworks": "UIKit",
+  "dependencies": {
+    "Alamofire": [
+      "~> 5.10.2"
+    ],
+    "Moya": [
+
+    ],
+    "HandyJSON": [
+
+    ],
+    "SnapKit": [
+
+    ]
+  },
   "subspecs": [
     {
       "name": "Extensions",
       "source_files": "XPBase/Classes/Extensions"
+    },
+    {
+      "name": "API",
+      "source_files": "XPBase/Classes/API/**/*"
     }
   ]
 }

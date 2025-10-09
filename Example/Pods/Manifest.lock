@@ -1,12 +1,33 @@
 PODS:
+  - Alamofire (5.10.2)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - HandyJSON (5.0.2)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - SnapKit (5.6.0)
   - XPBase (0.1.0):
+    - Alamofire (~> 5.10.2)
+    - HandyJSON
+    - Moya
+    - SnapKit
+    - XPBase/API (= 0.1.0)
     - XPBase/Extensions (= 0.1.0)
-  - XPBase/Extensions (0.1.0)
+  - XPBase/API (0.1.0):
+    - Alamofire (~> 5.10.2)
+    - HandyJSON
+    - Moya
+    - SnapKit
+  - XPBase/Extensions (0.1.0):
+    - Alamofire (~> 5.10.2)
+    - HandyJSON
+    - Moya
+    - SnapKit
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -14,15 +35,23 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - FBSnapshotTestCase
+    - HandyJSON
+    - Moya
+    - SnapKit
 
 EXTERNAL SOURCES:
   XPBase:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  XPBase: 65b1ccd2426607320bbc575cf5dad7378e7323c5
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  XPBase: 0520f0d3c9587823b0d05aa458e143c2f17d74e2
 
 PODFILE CHECKSUM: 3657530ed8e0ae8b46e406de8dbe42929c87eec6
 
