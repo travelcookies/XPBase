@@ -53,5 +53,6 @@ TODO: Add long description of the pod here.
   s.dependency 'Moya'
   s.dependency 'HandyJSON'
   s.dependency 'SnapKit'
+  s.dependency 'Toast-Swift'
 
 end

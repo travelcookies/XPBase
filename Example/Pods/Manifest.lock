@@ -11,11 +11,13 @@ PODS:
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - SnapKit (5.6.0)
+  - Toast-Swift (5.0.1)
   - XPBase (0.1.0):
     - Alamofire (~> 5.10.2)
     - HandyJSON
     - Moya
     - SnapKit
+    - Toast-Swift
     - XPBase/API (= 0.1.0)
     - XPBase/Extensions (= 0.1.0)
   - XPBase/API (0.1.0):
@@ -23,11 +25,13 @@ PODS:
     - HandyJSON
     - Moya
     - SnapKit
+    - Toast-Swift
   - XPBase/Extensions (0.1.0):
     - Alamofire (~> 5.10.2)
     - HandyJSON
     - Moya
     - SnapKit
+    - Toast-Swift
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -40,6 +44,7 @@ SPEC REPOS:
     - HandyJSON
     - Moya
     - SnapKit
+    - Toast-Swift
 
 EXTERNAL SOURCES:
   XPBase:
@@ -51,7 +56,8 @@ SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  XPBase: 0520f0d3c9587823b0d05aa458e143c2f17d74e2
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  XPBase: 385432a61d89325e2165aa40738b0afc6db0f987
 
 PODFILE CHECKSUM: 3657530ed8e0ae8b46e406de8dbe42929c87eec6
 

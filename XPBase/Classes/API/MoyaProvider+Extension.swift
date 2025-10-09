@@ -9,6 +9,16 @@
 import Foundation
 import HandyJSON
 import Moya
+import Toast_Swift
+
+
+func showToastText(text: String) {
+    if text == "" {
+        return
+    }
+    RVCManager.keyWindow().makeToast(text, duration: 2.0, position: .center)
+}
+
 
 public extension MoyaProvider {
     /*
@@ -46,7 +56,7 @@ public extension MoyaProvider {
                     print("ResponseSuccessCode", target, jsonDic ?? [:])
 
                     guard let jsonData = JSONDeserializer<BaseModel<T>>.deserializeFrom(dict: jsonDic) else {
-//                        showToastText(text: "服务器数据错误")
+                        showToastText(text: "服务器数据错误")
                         completion!(nil)
                         return
                     }
@@ -68,12 +78,12 @@ public extension MoyaProvider {
 
                     } else {
                         if showMsg {
-//                            showToastText(text: jsonData.msg ?? "")
+                            showToastText(text: jsonData.msg ?? "")
                         }
                         completion!(nil)
                     }
                 } else {
-//                    showToastText(text: "服务器访问失败")
+                    showToastText(text: "服务器访问失败")
                     completion!(nil)
                 }
             case let .failure(error):
