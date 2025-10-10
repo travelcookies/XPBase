@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		2301388A92F7E4B879BEF8B0 /* Pods_XPBase_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPBase_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6828A87466869A1606AC9A /* Pods-XPBase_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Example.release.xcconfig"; path = "Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example.release.xcconfig"; sourceTree = "<group>"; };
-		3CD3F4D6C7AF543DC58D98CD /* XPBase.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XPBase.podspec; path = ../XPBase.podspec; sourceTree = "<group>"; };
+		3CD3F4D6C7AF543DC58D98CD /* XPBase.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XPBase.podspec; path = ../XPBase.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* XPBase_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XPBase_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

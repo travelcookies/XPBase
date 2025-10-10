@@ -33,3 +33,18 @@ class BaseListModel<T>: HandyJSON {
 
     required init() {}
 }
+
+
+/// 弹框提示
+func showToastText(text: String) {
+    if text == "" {
+        return
+    }
+    RVCManager.keyWindow().makeToast(text, duration: 2.0, position: .center)
+}
+
+/// 当前网络状态判断
+func networkStatusJudgment() -> Bool {
+    let isUse = ReachableManager.shared.stateUseless
+    return !isUse
+}

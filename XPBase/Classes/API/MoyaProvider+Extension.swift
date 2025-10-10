@@ -11,15 +11,6 @@ import HandyJSON
 import Moya
 import Toast_Swift
 
-
-func showToastText(text: String) {
-    if text == "" {
-        return
-    }
-    RVCManager.keyWindow().makeToast(text, duration: 2.0, position: .center)
-}
-
-
 public extension MoyaProvider {
     /*
      当有返回值的方法未得到接收和使用时通常会出现"Result of call to "getSome()" is unused"的提示
@@ -27,15 +18,15 @@ public extension MoyaProvider {
      */
     @discardableResult
     func request<T>(_ target: Target,
-                           model: T.Type,
-                           showLoading: Bool = false,
-                           showMsg: Bool = true,
-                           responseSuccessCode: String = "1",
-                           completion: ((_ returnData: T?) -> Void)?) -> Cancellable? {
-//        if networkStatusJudgment() == false {
-//            showToastText(text: "请检查您的网络")
-//            return nil
-//        }
+                    model: T.Type,
+                    showLoading: Bool = false,
+                    showMsg: Bool = true,
+                    responseSuccessCode: String = "1",
+                    completion: ((_ returnData: T?) -> Void)?) -> Cancellable? {
+        if !networkStatusJudgment() {
+            showToastText(text: "请检查您的网络")
+            return nil
+        }
 
         if showLoading == true {
             YProgressHub.share.loading()
@@ -74,8 +65,7 @@ public extension MoyaProvider {
                         completion!(jsonData.data)
 
                     } else if jsonData.code == "401" { /** 发送登录页面通知 */
-//                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationShowLoginName), object: nil)
-
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationShowLoginName"), object: nil)
                     } else {
                         if showMsg {
                             showToastText(text: jsonData.msg ?? "")
