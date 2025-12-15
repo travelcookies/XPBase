@@ -5,31 +5,57 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - GKNavigationBar/NavigationBar (1.9.7)
   - HandyJSON (5.0.2)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - ReachabilitySwift (5.0.0)
   - SnapKit (5.6.0)
   - Toast-Swift (5.0.1)
   - XPBase (0.1.0):
     - Alamofire
+    - GKNavigationBar/NavigationBar
     - HandyJSON
     - Moya
+    - ReachabilitySwift
     - SnapKit
     - Toast-Swift
     - XPBase/API (= 0.1.0)
     - XPBase/Extensions (= 0.1.0)
+    - XPBase/Log (= 0.1.0)
+    - XPBase/Tool (= 0.1.0)
   - XPBase/API (0.1.0):
     - Alamofire
+    - GKNavigationBar/NavigationBar
     - HandyJSON
     - Moya
+    - ReachabilitySwift
     - SnapKit
     - Toast-Swift
   - XPBase/Extensions (0.1.0):
     - Alamofire
+    - GKNavigationBar/NavigationBar
     - HandyJSON
     - Moya
+    - ReachabilitySwift
+    - SnapKit
+    - Toast-Swift
+  - XPBase/Log (0.1.0):
+    - Alamofire
+    - GKNavigationBar/NavigationBar
+    - HandyJSON
+    - Moya
+    - ReachabilitySwift
+    - SnapKit
+    - Toast-Swift
+  - XPBase/Tool (0.1.0):
+    - Alamofire
+    - GKNavigationBar/NavigationBar
+    - HandyJSON
+    - Moya
+    - ReachabilitySwift
     - SnapKit
     - Toast-Swift
 
@@ -41,8 +67,10 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FBSnapshotTestCase
+    - GKNavigationBar
     - HandyJSON
     - Moya
+    - ReachabilitySwift
     - SnapKit
     - Toast-Swift
 
@@ -53,11 +81,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  GKNavigationBar: b32ca32122b2a9c3e36d10e23039402fb8d17420
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  XPBase: 3fc5299619cb096755803f0a1ec3c62af09a8e21
+  XPBase: 260c6952f452c215b6f8a92ce37bd000ebb4fe5d
 
 PODFILE CHECKSUM: 76a25d72d1f1dc36c53268bed18e9576f0d9b919
 

@@ -42,6 +42,15 @@ TODO: Add long description of the pod here.
     ss.source_files = 'XPBase/Classes/API/**/*'
   end
 
+  s.subspec 'Log' do |ss|
+    ss.source_files = 'XPBase/Classes/Log'
+  end
+
+  s.subspec 'Tool' do |ss|
+    ss.source_files = 'XPBase/Classes/Tool'
+#    ss.source_files = 'XPBase/Classes/Tool/**/*'
+  end
+
   # s.resource_bundles = {
   #   'XPBase' => ['XPBase/Assets/*.png']
   # }
@@ -54,5 +63,6 @@ TODO: Add long description of the pod here.
   s.dependency 'HandyJSON'
   s.dependency 'SnapKit'
   s.dependency 'Toast-Swift'
-
-end
+  s.dependency 'ReachabilitySwift'
+  s.dependency 'GKNavigationBar/NavigationBar'
+ end

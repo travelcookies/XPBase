@@ -34,6 +34,12 @@
     ],
     "Toast-Swift": [
 
+    ],
+    "ReachabilitySwift": [
+
+    ],
+    "GKNavigationBar/NavigationBar": [
+
     ]
   },
   "subspecs": [
@@ -44,6 +50,14 @@
     {
       "name": "API",
       "source_files": "XPBase/Classes/API/**/*"
+    },
+    {
+      "name": "Log",
+      "source_files": "XPBase/Classes/Log"
+    },
+    {
+      "name": "Tool",
+      "source_files": "XPBase/Classes/Tool"
     }
   ]
 }
