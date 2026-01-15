@@ -15,6 +15,8 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		63232473AAB37CB5A9652397 /* Pods_XPBase_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2301388A92F7E4B879BEF8B0 /* Pods_XPBase_Example.framework */; };
 		734F72CC2E97480900FF74E7 /* UIColor+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734F72CB2E97480900FF74E7 /* UIColor+Operation.swift */; };
+		73A7756D2F18E70B006CB079 /* TestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7756B2F18E70B006CB079 /* TestAPIService.swift */; };
+		73A7756E2F18E70B006CB079 /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7756C2F18E70B006CB079 /* TestListViewController.swift */; };
 		CCF1DF456EAD87A9EADC1A6A /* Pods_XPBase_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C071947BA6E2E7B135099725 /* Pods_XPBase_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		734F72CB2E97480900FF74E7 /* UIColor+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Operation.swift"; sourceTree = "<group>"; };
+		73A7756B2F18E70B006CB079 /* TestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIService.swift; sourceTree = "<group>"; };
+		73A7756C2F18E70B006CB079 /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		B81D0078AF7C21D4B385535D /* Pods-XPBase_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Example.debug.xcconfig"; path = "Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B94AA9F1E1B8AEBD6C937ECA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C071947BA6E2E7B135099725 /* Pods_XPBase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPBase_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,8 @@
 				734F72CB2E97480900FF74E7 /* UIColor+Operation.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				73A7756B2F18E70B006CB079 /* TestAPIService.swift */,
+				73A7756C2F18E70B006CB079 /* TestListViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -367,6 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A7756D2F18E70B006CB079 /* TestAPIService.swift in Sources */,
+				73A7756E2F18E70B006CB079 /* TestListViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				734F72CC2E97480900FF74E7 /* UIColor+Operation.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

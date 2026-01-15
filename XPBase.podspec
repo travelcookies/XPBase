@@ -32,6 +32,11 @@ TODO: Add long description of the pod here.
 
    s.source_files = 'XPBase/Classes/**/*'
 
+  # 资源文件
+  s.resource_bundles = {
+    'XPBase' => ['XPBase/Classes/**/*.xib', 'XPBase/Classes/**/*.png', 'XPBase/Classes/**/*.jpg', 'XPBase/Classes/**/*.jpeg', 'XPBase/Classes/**/*.gif']
+  }
+
   # 拓展
   s.subspec 'Extensions' do |ss|
     ss.source_files = 'XPBase/Classes/Extensions'

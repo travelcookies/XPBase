@@ -15,13 +15,13 @@ public class BaseModel<T>: NSObject, HandyJSON {
     public var time: Int?
     public var msg: String?
     public var data: T?
-    public override required init() {}
+    override public required init() {}
 }
 
 public class CodeMsgModel: NSObject, HandyJSON {
     public var code: Int = -1
     public var msg: String?
-    public override required init() {}
+    override public required init() {}
 }
 
 public class BaseListModel<T>: HandyJSON {
@@ -31,9 +31,8 @@ public class BaseListModel<T>: HandyJSON {
     public var total: Int = 0
     public var size: Int = 0
 
-    required public init() {}
+    public required init() {}
 }
-
 
 /// 弹框提示
 public func showToastText(text: String) {

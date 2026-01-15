@@ -19,6 +19,15 @@
     "ios": "11.0"
   },
   "source_files": "XPBase/Classes/**/*",
+  "resource_bundles": {
+    "XPBase": [
+      "XPBase/Classes/**/*.xib",
+      "XPBase/Classes/**/*.png",
+      "XPBase/Classes/**/*.jpg",
+      "XPBase/Classes/**/*.jpeg",
+      "XPBase/Classes/**/*.gif"
+    ]
+  },
   "frameworks": "UIKit",
   "dependencies": {
     "Alamofire": [

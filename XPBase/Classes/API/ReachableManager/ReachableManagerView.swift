@@ -11,6 +11,8 @@ import UIKit
 class ReachableManagerView: UIView {
 
     class func initView() -> ReachableManagerView {
-        return Bundle.main.loadNibNamed("ReachableManagerView", owner: nil, options: nil)?.first as! ReachableManagerView
+        // 从正确的bundle中加载xib文件
+        let bundle = Bundle(for: self)
+        return bundle.loadNibNamed("ReachableManagerView", owner: nil, options: nil)?.first as! ReachableManagerView
     }
 }

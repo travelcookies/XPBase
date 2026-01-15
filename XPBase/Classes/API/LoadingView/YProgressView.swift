@@ -11,17 +11,20 @@ import UIKit
 class YProgressView: UIView {
 
     class func initView() -> YProgressView {
-        return Bundle.main.loadNibNamed("YProgressView", owner: nil, options: nil)?.first as! YProgressView
+        // 从正确的bundle中加载xib文件
+        let bundle = Bundle(for: self)
+        return bundle.loadNibNamed("YProgressView", owner: nil, options: nil)?.first as! YProgressView
     }
 
     @IBOutlet weak var imageView: UIImageView!
 
     lazy var images:[UIImage] = {
         var images = [UIImage]()
+        let bundle = Bundle(for: YProgressView.self)
         for i in 1...81 {
             let imageName = String(format: "driving-animation-%d", i) // 补零到5位数
-            let img=UIImage(named: imageName)
-            images.append((img ?? UIImage(named: "driving-animation-1")!))
+            let img = UIImage(named: imageName, in: bundle, compatibleWith: nil)
+            images.append((img ?? UIImage(named: "driving-animation-1", in: bundle, compatibleWith: nil)!))
         }
         return images
     }()
