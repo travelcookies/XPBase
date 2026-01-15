@@ -1,59 +1,93 @@
 //
-//  SZGetViewController.swift
-//  SZParking
+//  RVCManager.swift
 //
 //  Created by 林小鹏 on 2022/10/18.
 //  Copyright © 2022 ningbokubin. All rights reserved.
 //
 
-import Foundation
 import UIKit
-/// 获取当前VC
-public class RVCManager {
-    /// 获取当前VC
-    public class func getCurrentVC() -> UIViewController {
-        let windows = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
-//        let rootVc = UIApplication.shared.keyWindow?.rootViewController
-        let rootVc = windows?.rootViewController
-        let currentVc = getCurrentVcFrom(rootVc!)
-        return currentVc
-    }
 
-    static var currentVC: UIViewController {
-        let windows = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
-        let rootVc = windows?.rootViewController
-        let currentVc = RVCManager.getCurrentVcFrom(rootVc!)
-        return currentVc
-    }
+/// 视图控制器管理器，用于获取当前显示的视图控制器
+public final class RVCManager {
 
-    private class func getCurrentVcFrom(_ rootVc: UIViewController) -> UIViewController {
-        var currentVc: UIViewController
-        var rootCtr = rootVc
-        if rootCtr.presentedViewController != nil {
-            rootCtr = rootVc.presentedViewController!
+    /// 获取当前显示的视图控制器
+    /// - Returns: 当前最顶层的视图控制器
+    public class func currentViewController() -> UIViewController? {
+        guard let rootViewController = keyWindow()?.rootViewController else {
+            return nil
         }
-        if rootVc.isKind(of: UITabBarController.classForCoder()) {
-            currentVc = getCurrentVcFrom((rootVc as! UITabBarController).selectedViewController!)
-        } else if rootVc.isKind(of: UINavigationController.classForCoder()) {
-            currentVc = getCurrentVcFrom((rootVc as! UINavigationController).visibleViewController!)
+        return getCurrentViewController(from: rootViewController)
+    }
+
+    /// 当前显示的视图控制器（计算属性版本）
+    public static var currentVC: UIViewController? {
+        guard let rootViewController = keyWindow()?.rootViewController else {
+            return nil
+        }
+        return getCurrentViewController(from: rootViewController)
+    }
+
+    /// 获取应用的主窗口
+    /// - Returns: 应用的主窗口，如果不存在则返回 nil
+    public class func keyWindow() -> UIWindow? {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }
         } else {
-            currentVc = rootCtr
+            return UIApplication.shared.keyWindow
         }
-        return currentVc
     }
 
-    /// 当前window
-    /// - Returns: window
-    public class func keyWindow() -> UIWindow {
-        if #available(iOS 15.0, *) {
-            let keyWindow = UIApplication.shared.connectedScenes
-                .map({ $0 as? UIWindowScene })
-                .compactMap({ $0 })
-                .first?.windows.first ?? UIWindow()
-            return keyWindow
-        } else {
-            let keyWindow = UIApplication.shared.windows.first ?? UIWindow()
-            return keyWindow
+    // MARK: - Private Methods
+
+    /// 递归获取当前显示的视图控制器
+    /// - Parameter rootViewController: 根视图控制器
+    /// - Returns: 当前显示的视图控制器
+    private class func getCurrentViewController(from rootViewController: UIViewController) -> UIViewController {
+        var currentViewController = rootViewController
+
+        // 处理 presented 视图控制器
+        if let presentedViewController = currentViewController.presentedViewController {
+            currentViewController = presentedViewController
         }
+
+        // 根据视图控制器类型递归获取
+        switch currentViewController {
+        case let tabBarController as UITabBarController:
+            if let selectedViewController = tabBarController.selectedViewController {
+                return getCurrentViewController(from: selectedViewController)
+            }
+
+        case let navigationController as UINavigationController:
+            if let visibleViewController = navigationController.visibleViewController {
+                return getCurrentViewController(from: visibleViewController)
+            }
+
+        default:
+            break
+        }
+
+        return currentViewController
+    }
+
+    /// 获取当前导航控制器
+    /// - Returns: 当前显示的导航控制器，如果不存在则返回 nil
+    public class func currentNavigationController() -> UINavigationController? {
+        return currentViewController()?.navigationController
+    }
+
+    /// 获取当前标签页控制器
+    /// - Returns: 当前显示的标签页控制器，如果不存在则返回 nil
+    public class func currentTabBarController() -> UITabBarController? {
+        return currentViewController()?.tabBarController
+    }
+
+    /// 安全获取当前视图控制器（带后备值）
+    /// - Parameter fallback: 当无法获取当前视图控制器时返回的后备视图控制器
+    /// - Returns: 当前视图控制器或后备视图控制器
+    public class func safeCurrentViewController(fallback: UIViewController? = nil) -> UIViewController {
+        return currentViewController() ?? fallback ?? UIViewController()
     }
 }

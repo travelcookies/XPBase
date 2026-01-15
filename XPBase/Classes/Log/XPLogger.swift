@@ -105,7 +105,7 @@ public struct XPLogger {
         let timestamp = dateFormatter.string(from: Date())
 
         // 构建格式化的输出字符串，模拟结构化日志[citation:1]
-        let formattedMessage = String(format: "%@ %@ [%@] [%@] %@ (Func: %@, Line: %d)",
+        let formattedMessage = String(format: "\(fileName) %@ %@ [%@] [%@] %@ (Func: %@, Line: %d)",
                                       timestamp,
                                       level.icon,
                                       subsystem,

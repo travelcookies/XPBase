@@ -30,34 +30,32 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
 
-  # s.source_files = 'XPBase/Classes/**/*'
+   s.source_files = 'XPBase/Classes/**/*'
 
+  # 拓展
   s.subspec 'Extensions' do |ss|
     ss.source_files = 'XPBase/Classes/Extensions'
   end
 
-
+  # 网络请求
   s.subspec 'API' do |ss|
     ss.source_files = 'XPBase/Classes/API'
     ss.source_files = 'XPBase/Classes/API/**/*'
   end
 
+  # 提示
   s.subspec 'Log' do |ss|
     ss.source_files = 'XPBase/Classes/Log'
   end
 
+  # 工具
   s.subspec 'Tool' do |ss|
     ss.source_files = 'XPBase/Classes/Tool'
 #    ss.source_files = 'XPBase/Classes/Tool/**/*'
   end
 
-  # s.resource_bundles = {
-  #   'XPBase' => ['XPBase/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-
   s.dependency 'Alamofire'
   s.dependency 'Moya'
   s.dependency 'HandyJSON'

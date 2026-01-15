@@ -145,7 +145,7 @@ class MediaPickerTool: NSObject {
 
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let settingsAction = UIAlertAction(title: "前往设置", style: .default) { _ in
-            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
                 UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
             }
         }
