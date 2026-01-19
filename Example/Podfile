@@ -4,6 +4,8 @@ platform :ios, '11.0'
 
 target 'XPBase_Example' do
   pod 'XPBase', :path => '../'
+  pod 'Moya'
+  pod 'HandyJSON'
 
   target 'XPBase_Tests' do
     inherit! :search_paths

@@ -12,9 +12,11 @@ extension UIView: XPCompatible {}
 public extension XP where Base == UIView {
     static func loadFromNib(_ nibname: String? = nil) -> Self { // Self (大写) 当前类对象
         // self(小写) 当前对象
-        let loadName = nibname == nil ? "\(self)" : nibname!
-
-        return Bundle.main.loadNibNamed(loadName, owner: nil, options: nil)?.first as! Self
+        let loadName = nibname == nil ? "\(Base.self)" : nibname!
+        // 获取正确的bundle，使用Base.self确保适用于任何UIView子类
+        let bundle = Bundle(for: Base.self)
+        
+        return bundle.loadNibNamed(loadName, owner: nil as AnyObject?, options: nil as [UINib.OptionsKey: Any]?)?.first as! Self
     }
 }
 
