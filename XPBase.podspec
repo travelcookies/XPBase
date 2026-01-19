@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
 
-   s.source_files = 'XPBase/Classes/**/*'
+  # s.source_files = 'XPBase/Classes/**/*'
 
   # 资源文件
   s.resource_bundles = {
