@@ -61,6 +61,7 @@ PODS:
     - URLNavigator
 
 DEPENDENCIES:
+  - GKNavigationBar/NavigationBar (= 1.9.7)
   - HandyJSON
   - Moya
   - XPBase (from `../`)
@@ -91,6 +92,6 @@ SPEC CHECKSUMS:
   URLNavigator: e9c0426ba6e6ac57f34d018bbf3df840797f984d
   XPBase: 5cf8feab163f2622f7bdf5d648309ef8972138b9
 
-PODFILE CHECKSUM: 93f267890b2099add16348a53a4e2515e3e00655
+PODFILE CHECKSUM: d7adbfad1029ed470ce90ee0c4b818643facfec8
 
 COCOAPODS: 1.15.2

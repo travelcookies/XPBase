@@ -6,6 +6,8 @@ target 'XPBase_Example' do
   pod 'XPBase', :path => '../'
   pod 'Moya'
   pod 'HandyJSON'
+  #nav管理
+  pod 'GKNavigationBar/NavigationBar', '1.9.7'
 
   target 'XPBase_Tests' do
     inherit! :search_paths

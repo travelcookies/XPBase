@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import XPBase
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+//        Nav.share.addRouter(HomeRouter())
     }
 
     override func didReceiveMemoryWarning() {
