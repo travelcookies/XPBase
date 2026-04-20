@@ -3,21 +3,105 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542231DA49D01797DE0E5D1D /* Pods_XPBase_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4721FBCDD026337A1BE24690 /* Pods_XPBase_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		63232473AAB37CB5A9652397 /* Pods_XPBase_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2301388A92F7E4B879BEF8B0 /* Pods_XPBase_Example.framework */; };
 		734F72CC2E97480900FF74E7 /* UIColor+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734F72CB2E97480900FF74E7 /* UIColor+Operation.swift */; };
 		73A7756D2F18E70B006CB079 /* TestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7756B2F18E70B006CB079 /* TestAPIService.swift */; };
 		73A7756E2F18E70B006CB079 /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7756C2F18E70B006CB079 /* TestListViewController.swift */; };
-		CCF1DF456EAD87A9EADC1A6A /* Pods_XPBase_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C071947BA6E2E7B135099725 /* Pods_XPBase_Tests.framework */; };
+		73CDAE912F95C9840088E87B /* driving-animation-14.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE482F95C9840088E87B /* driving-animation-14.png */; };
+		73CDAE922F95C9840088E87B /* driving-animation-70.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE802F95C9840088E87B /* driving-animation-70.png */; };
+		73CDAE932F95C9840088E87B /* driving-animation-33.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE5B2F95C9840088E87B /* driving-animation-33.png */; };
+		73CDAE942F95C9840088E87B /* driving-animation-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE3B2F95C9840088E87B /* driving-animation-1.png */; };
+		73CDAE952F95C9840088E87B /* driving-animation-43.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE652F95C9840088E87B /* driving-animation-43.png */; };
+		73CDAE962F95C9840088E87B /* driving-animation-19.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE4D2F95C9840088E87B /* driving-animation-19.png */; };
+		73CDAE972F95C9840088E87B /* driving-animation-59.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE752F95C9840088E87B /* driving-animation-59.png */; };
+		73CDAE982F95C9840088E87B /* driving-animation-71.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE812F95C9840088E87B /* driving-animation-71.png */; };
+		73CDAE992F95C9840088E87B /* driving-animation-62.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE782F95C9840088E87B /* driving-animation-62.png */; };
+		73CDAE9A2F95C9840088E87B /* driving-animation-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE582F95C9840088E87B /* driving-animation-30.png */; };
+		73CDAE9B2F95C9840088E87B /* driving-animation-55.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE712F95C9840088E87B /* driving-animation-55.png */; };
+		73CDAE9C2F95C9840088E87B /* driving-animation-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE412F95C9840088E87B /* driving-animation-7.png */; };
+		73CDAE9D2F95C9840088E87B /* driving-animation-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE6C2F95C9840088E87B /* driving-animation-50.png */; };
+		73CDAE9E2F95C9840088E87B /* driving-animation-45.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE672F95C9840088E87B /* driving-animation-45.png */; };
+		73CDAE9F2F95C9840088E87B /* driving-animation-15.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE492F95C9840088E87B /* driving-animation-15.png */; };
+		73CDAEA02F95C9840088E87B /* driving-animation-37.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE5F2F95C9840088E87B /* driving-animation-37.png */; };
+		73CDAEA12F95C9840088E87B /* driving-animation-54.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE702F95C9840088E87B /* driving-animation-54.png */; };
+		73CDAEA22F95C9840088E87B /* driving-animation-35.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE5D2F95C9840088E87B /* driving-animation-35.png */; };
+		73CDAEA32F95C9840088E87B /* driving-animation-56.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE722F95C9840088E87B /* driving-animation-56.png */; };
+		73CDAEA42F95C9840088E87B /* driving-animation-77.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE872F95C9840088E87B /* driving-animation-77.png */; };
+		73CDAEA52F95C9840088E87B /* driving-animation-68.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE7E2F95C9840088E87B /* driving-animation-68.png */; };
+		73CDAEA62F95C9840088E87B /* driving-animation-28.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE562F95C9840088E87B /* driving-animation-28.png */; };
+		73CDAEA72F95C9840088E87B /* driving-animation-31.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE592F95C9840088E87B /* driving-animation-31.png */; };
+		73CDAEA82F95C9840088E87B /* driving-animation-20.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE4E2F95C9840088E87B /* driving-animation-20.png */; };
+		73CDAEA92F95C9840088E87B /* driving-animation-74.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE842F95C9840088E87B /* driving-animation-74.png */; };
+		73CDAEAA2F95C9840088E87B /* driving-animation-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE3D2F95C9840088E87B /* driving-animation-3.png */; };
+		73CDAEAB2F95C9840088E87B /* driving-animation-63.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE792F95C9840088E87B /* driving-animation-63.png */; };
+		73CDAEAC2F95C9840088E87B /* driving-animation-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE3F2F95C9840088E87B /* driving-animation-5.png */; };
+		73CDAEAD2F95C9840088E87B /* driving-animation-49.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE6B2F95C9840088E87B /* driving-animation-49.png */; };
+		73CDAEAE2F95C9840088E87B /* driving-animation-61.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE772F95C9840088E87B /* driving-animation-61.png */; };
+		73CDAEAF2F95C9840088E87B /* driving-animation-69.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE7F2F95C9840088E87B /* driving-animation-69.png */; };
+		73CDAEB02F95C9840088E87B /* driving-animation-67.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE7D2F95C9840088E87B /* driving-animation-67.png */; };
+		73CDAEB12F95C9840088E87B /* driving-animation-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE762F95C9840088E87B /* driving-animation-60.png */; };
+		73CDAEB22F95C9840088E87B /* driving-animation-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE422F95C9840088E87B /* driving-animation-8.png */; };
+		73CDAEB32F95C9840088E87B /* driving-animation-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE732F95C9840088E87B /* driving-animation-57.png */; };
+		73CDAEB42F95C9840088E87B /* driving-animation-47.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE692F95C9840088E87B /* driving-animation-47.png */; };
+		73CDAEB52F95C9840088E87B /* driving-animation-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE862F95C9840088E87B /* driving-animation-76.png */; };
+		73CDAEB62F95C9840088E87B /* driving-animation-41.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE632F95C9840088E87B /* driving-animation-41.png */; };
+		73CDAEB72F95C9840088E87B /* driving-animation-73.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE832F95C9840088E87B /* driving-animation-73.png */; };
+		73CDAEB82F95C9840088E87B /* driving-animation-42.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE642F95C9840088E87B /* driving-animation-42.png */; };
+		73CDAEB92F95C9840088E87B /* driving-animation-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE462F95C9840088E87B /* driving-animation-12.png */; };
+		73CDAEBA2F95C9840088E87B /* driving-animation-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE442F95C9840088E87B /* driving-animation-10.png */; };
+		73CDAEBB2F95C9840088E87B /* driving-animation-22.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE502F95C9840088E87B /* driving-animation-22.png */; };
+		73CDAEBC2F95C9840088E87B /* driving-animation-21.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE4F2F95C9840088E87B /* driving-animation-21.png */; };
+		73CDAEBD2F95C9840088E87B /* driving-animation-65.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE7B2F95C9840088E87B /* driving-animation-65.png */; };
+		73CDAEBE2F95C9840088E87B /* driving-animation-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE3E2F95C9840088E87B /* driving-animation-4.png */; };
+		73CDAEBF2F95C9840088E87B /* driving-animation-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE402F95C9840088E87B /* driving-animation-6.png */; };
+		73CDAEC02F95C9840088E87B /* driving-animation-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE432F95C9840088E87B /* driving-animation-9.png */; };
+		73CDAEC12F95C9840088E87B /* driving-animation-52.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE6E2F95C9840088E87B /* driving-animation-52.png */; };
+		73CDAEC22F95C9840088E87B /* driving-animation-51.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE6D2F95C9840088E87B /* driving-animation-51.png */; };
+		73CDAEC32F95C9840088E87B /* driving-animation-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE822F95C9840088E87B /* driving-animation-72.png */; };
+		73CDAEC42F95C9840088E87B /* driving-animation-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE532F95C9840088E87B /* driving-animation-25.png */; };
+		73CDAEC52F95C9840088E87B /* driving-animation-26.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE542F95C9840088E87B /* driving-animation-26.png */; };
+		73CDAEC62F95C9840088E87B /* driving-animation-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE5A2F95C9840088E87B /* driving-animation-32.png */; };
+		73CDAEC72F95C9840088E87B /* driving-animation-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE8A2F95C9840088E87B /* driving-animation-80.png */; };
+		73CDAEC82F95C9840088E87B /* driving-animation-75.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE852F95C9840088E87B /* driving-animation-75.png */; };
+		73CDAEC92F95C9840088E87B /* driving-animation-18.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE4C2F95C9840088E87B /* driving-animation-18.png */; };
+		73CDAECA2F95C9840088E87B /* driving-animation-34.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE5C2F95C9840088E87B /* driving-animation-34.png */; };
+		73CDAECB2F95C9840088E87B /* driving-animation-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE572F95C9840088E87B /* driving-animation-29.png */; };
+		73CDAECC2F95C9840088E87B /* driving-animation-27.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE552F95C9840088E87B /* driving-animation-27.png */; };
+		73CDAECD2F95C9840088E87B /* driving-animation-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE522F95C9840088E87B /* driving-animation-24.png */; };
+		73CDAECE2F95C9840088E87B /* driving-animation-23.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE512F95C9840088E87B /* driving-animation-23.png */; };
+		73CDAECF2F95C9840088E87B /* driving-animation-53.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE6F2F95C9840088E87B /* driving-animation-53.png */; };
+		73CDAED02F95C9840088E87B /* driving-animation-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE742F95C9840088E87B /* driving-animation-58.png */; };
+		73CDAED12F95C9840088E87B /* driving-animation-79.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE892F95C9840088E87B /* driving-animation-79.png */; };
+		73CDAED22F95C9840088E87B /* driving-animation-11.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE452F95C9840088E87B /* driving-animation-11.png */; };
+		73CDAED32F95C9840088E87B /* driving-animation-17.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE4B2F95C9840088E87B /* driving-animation-17.png */; };
+		73CDAED42F95C9840088E87B /* driving-animation-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE7A2F95C9840088E87B /* driving-animation-64.png */; };
+		73CDAED52F95C9840088E87B /* driving-animation-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE622F95C9840088E87B /* driving-animation-40.png */; };
+		73CDAED62F95C9840088E87B /* driving-animation-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE3C2F95C9840088E87B /* driving-animation-2.png */; };
+		73CDAED72F95C9840088E87B /* driving-animation-81.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE8B2F95C9840088E87B /* driving-animation-81.png */; };
+		73CDAED82F95C9840088E87B /* driving-animation-39.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE612F95C9840088E87B /* driving-animation-39.png */; };
+		73CDAED92F95C9840088E87B /* driving-animation-44.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE662F95C9840088E87B /* driving-animation-44.png */; };
+		73CDAEDA2F95C9840088E87B /* driving-animation-78.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE882F95C9840088E87B /* driving-animation-78.png */; };
+		73CDAEDB2F95C9840088E87B /* driving-animation-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE4A2F95C9840088E87B /* driving-animation-16.png */; };
+		73CDAEDC2F95C9840088E87B /* driving-animation-66.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE7C2F95C9840088E87B /* driving-animation-66.png */; };
+		73CDAEDD2F95C9840088E87B /* driving-animation-38.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE602F95C9840088E87B /* driving-animation-38.png */; };
+		73CDAEDE2F95C9840088E87B /* YProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE8F2F95C9840088E87B /* YProgressView.xib */; };
+		73CDAEDF2F95C9840088E87B /* driving-animation-13.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE472F95C9840088E87B /* driving-animation-13.png */; };
+		73CDAEE02F95C9840088E87B /* driving-animation-46.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE682F95C9840088E87B /* driving-animation-46.png */; };
+		73CDAEE12F95C9840088E87B /* driving-animation-36.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE5E2F95C9840088E87B /* driving-animation-36.png */; };
+		73CDAEE22F95C9840088E87B /* driving-animation-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CDAE6A2F95C9840088E87B /* driving-animation-48.png */; };
+		73CDAEE32F95C9840088E87B /* YProgressHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CDAE8D2F95C9840088E87B /* YProgressHub.swift */; };
+		73CDAEE42F95C9840088E87B /* YProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CDAE8E2F95C9840088E87B /* YProgressView.swift */; };
+		9AF1531158DDB3C842C3CB33 /* Pods_XPBase_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A14851BA79576C934B810F /* Pods_XPBase_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +115,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2301388A92F7E4B879BEF8B0 /* Pods_XPBase_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPBase_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B6828A87466869A1606AC9A /* Pods-XPBase_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Example.release.xcconfig"; path = "Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3CD3F4D6C7AF543DC58D98CD /* XPBase.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XPBase.podspec; path = ../XPBase.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4721FBCDD026337A1BE24690 /* Pods_XPBase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPBase_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* XPBase_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XPBase_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,12 +130,97 @@
 		734F72CB2E97480900FF74E7 /* UIColor+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Operation.swift"; sourceTree = "<group>"; };
 		73A7756B2F18E70B006CB079 /* TestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIService.swift; sourceTree = "<group>"; };
 		73A7756C2F18E70B006CB079 /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
-		B81D0078AF7C21D4B385535D /* Pods-XPBase_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Example.debug.xcconfig"; path = "Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		73CDAE3B2F95C9840088E87B /* driving-animation-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-1.png"; sourceTree = "<group>"; };
+		73CDAE3C2F95C9840088E87B /* driving-animation-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-2.png"; sourceTree = "<group>"; };
+		73CDAE3D2F95C9840088E87B /* driving-animation-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-3.png"; sourceTree = "<group>"; };
+		73CDAE3E2F95C9840088E87B /* driving-animation-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-4.png"; sourceTree = "<group>"; };
+		73CDAE3F2F95C9840088E87B /* driving-animation-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-5.png"; sourceTree = "<group>"; };
+		73CDAE402F95C9840088E87B /* driving-animation-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-6.png"; sourceTree = "<group>"; };
+		73CDAE412F95C9840088E87B /* driving-animation-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-7.png"; sourceTree = "<group>"; };
+		73CDAE422F95C9840088E87B /* driving-animation-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-8.png"; sourceTree = "<group>"; };
+		73CDAE432F95C9840088E87B /* driving-animation-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-9.png"; sourceTree = "<group>"; };
+		73CDAE442F95C9840088E87B /* driving-animation-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-10.png"; sourceTree = "<group>"; };
+		73CDAE452F95C9840088E87B /* driving-animation-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-11.png"; sourceTree = "<group>"; };
+		73CDAE462F95C9840088E87B /* driving-animation-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-12.png"; sourceTree = "<group>"; };
+		73CDAE472F95C9840088E87B /* driving-animation-13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-13.png"; sourceTree = "<group>"; };
+		73CDAE482F95C9840088E87B /* driving-animation-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-14.png"; sourceTree = "<group>"; };
+		73CDAE492F95C9840088E87B /* driving-animation-15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-15.png"; sourceTree = "<group>"; };
+		73CDAE4A2F95C9840088E87B /* driving-animation-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-16.png"; sourceTree = "<group>"; };
+		73CDAE4B2F95C9840088E87B /* driving-animation-17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-17.png"; sourceTree = "<group>"; };
+		73CDAE4C2F95C9840088E87B /* driving-animation-18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-18.png"; sourceTree = "<group>"; };
+		73CDAE4D2F95C9840088E87B /* driving-animation-19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-19.png"; sourceTree = "<group>"; };
+		73CDAE4E2F95C9840088E87B /* driving-animation-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-20.png"; sourceTree = "<group>"; };
+		73CDAE4F2F95C9840088E87B /* driving-animation-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-21.png"; sourceTree = "<group>"; };
+		73CDAE502F95C9840088E87B /* driving-animation-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-22.png"; sourceTree = "<group>"; };
+		73CDAE512F95C9840088E87B /* driving-animation-23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-23.png"; sourceTree = "<group>"; };
+		73CDAE522F95C9840088E87B /* driving-animation-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-24.png"; sourceTree = "<group>"; };
+		73CDAE532F95C9840088E87B /* driving-animation-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-25.png"; sourceTree = "<group>"; };
+		73CDAE542F95C9840088E87B /* driving-animation-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-26.png"; sourceTree = "<group>"; };
+		73CDAE552F95C9840088E87B /* driving-animation-27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-27.png"; sourceTree = "<group>"; };
+		73CDAE562F95C9840088E87B /* driving-animation-28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-28.png"; sourceTree = "<group>"; };
+		73CDAE572F95C9840088E87B /* driving-animation-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-29.png"; sourceTree = "<group>"; };
+		73CDAE582F95C9840088E87B /* driving-animation-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-30.png"; sourceTree = "<group>"; };
+		73CDAE592F95C9840088E87B /* driving-animation-31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-31.png"; sourceTree = "<group>"; };
+		73CDAE5A2F95C9840088E87B /* driving-animation-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-32.png"; sourceTree = "<group>"; };
+		73CDAE5B2F95C9840088E87B /* driving-animation-33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-33.png"; sourceTree = "<group>"; };
+		73CDAE5C2F95C9840088E87B /* driving-animation-34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-34.png"; sourceTree = "<group>"; };
+		73CDAE5D2F95C9840088E87B /* driving-animation-35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-35.png"; sourceTree = "<group>"; };
+		73CDAE5E2F95C9840088E87B /* driving-animation-36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-36.png"; sourceTree = "<group>"; };
+		73CDAE5F2F95C9840088E87B /* driving-animation-37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-37.png"; sourceTree = "<group>"; };
+		73CDAE602F95C9840088E87B /* driving-animation-38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-38.png"; sourceTree = "<group>"; };
+		73CDAE612F95C9840088E87B /* driving-animation-39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-39.png"; sourceTree = "<group>"; };
+		73CDAE622F95C9840088E87B /* driving-animation-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-40.png"; sourceTree = "<group>"; };
+		73CDAE632F95C9840088E87B /* driving-animation-41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-41.png"; sourceTree = "<group>"; };
+		73CDAE642F95C9840088E87B /* driving-animation-42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-42.png"; sourceTree = "<group>"; };
+		73CDAE652F95C9840088E87B /* driving-animation-43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-43.png"; sourceTree = "<group>"; };
+		73CDAE662F95C9840088E87B /* driving-animation-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-44.png"; sourceTree = "<group>"; };
+		73CDAE672F95C9840088E87B /* driving-animation-45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-45.png"; sourceTree = "<group>"; };
+		73CDAE682F95C9840088E87B /* driving-animation-46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-46.png"; sourceTree = "<group>"; };
+		73CDAE692F95C9840088E87B /* driving-animation-47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-47.png"; sourceTree = "<group>"; };
+		73CDAE6A2F95C9840088E87B /* driving-animation-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-48.png"; sourceTree = "<group>"; };
+		73CDAE6B2F95C9840088E87B /* driving-animation-49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-49.png"; sourceTree = "<group>"; };
+		73CDAE6C2F95C9840088E87B /* driving-animation-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-50.png"; sourceTree = "<group>"; };
+		73CDAE6D2F95C9840088E87B /* driving-animation-51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-51.png"; sourceTree = "<group>"; };
+		73CDAE6E2F95C9840088E87B /* driving-animation-52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-52.png"; sourceTree = "<group>"; };
+		73CDAE6F2F95C9840088E87B /* driving-animation-53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-53.png"; sourceTree = "<group>"; };
+		73CDAE702F95C9840088E87B /* driving-animation-54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-54.png"; sourceTree = "<group>"; };
+		73CDAE712F95C9840088E87B /* driving-animation-55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-55.png"; sourceTree = "<group>"; };
+		73CDAE722F95C9840088E87B /* driving-animation-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-56.png"; sourceTree = "<group>"; };
+		73CDAE732F95C9840088E87B /* driving-animation-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-57.png"; sourceTree = "<group>"; };
+		73CDAE742F95C9840088E87B /* driving-animation-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-58.png"; sourceTree = "<group>"; };
+		73CDAE752F95C9840088E87B /* driving-animation-59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-59.png"; sourceTree = "<group>"; };
+		73CDAE762F95C9840088E87B /* driving-animation-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-60.png"; sourceTree = "<group>"; };
+		73CDAE772F95C9840088E87B /* driving-animation-61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-61.png"; sourceTree = "<group>"; };
+		73CDAE782F95C9840088E87B /* driving-animation-62.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-62.png"; sourceTree = "<group>"; };
+		73CDAE792F95C9840088E87B /* driving-animation-63.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-63.png"; sourceTree = "<group>"; };
+		73CDAE7A2F95C9840088E87B /* driving-animation-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-64.png"; sourceTree = "<group>"; };
+		73CDAE7B2F95C9840088E87B /* driving-animation-65.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-65.png"; sourceTree = "<group>"; };
+		73CDAE7C2F95C9840088E87B /* driving-animation-66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-66.png"; sourceTree = "<group>"; };
+		73CDAE7D2F95C9840088E87B /* driving-animation-67.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-67.png"; sourceTree = "<group>"; };
+		73CDAE7E2F95C9840088E87B /* driving-animation-68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-68.png"; sourceTree = "<group>"; };
+		73CDAE7F2F95C9840088E87B /* driving-animation-69.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-69.png"; sourceTree = "<group>"; };
+		73CDAE802F95C9840088E87B /* driving-animation-70.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-70.png"; sourceTree = "<group>"; };
+		73CDAE812F95C9840088E87B /* driving-animation-71.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-71.png"; sourceTree = "<group>"; };
+		73CDAE822F95C9840088E87B /* driving-animation-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-72.png"; sourceTree = "<group>"; };
+		73CDAE832F95C9840088E87B /* driving-animation-73.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-73.png"; sourceTree = "<group>"; };
+		73CDAE842F95C9840088E87B /* driving-animation-74.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-74.png"; sourceTree = "<group>"; };
+		73CDAE852F95C9840088E87B /* driving-animation-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-75.png"; sourceTree = "<group>"; };
+		73CDAE862F95C9840088E87B /* driving-animation-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-76.png"; sourceTree = "<group>"; };
+		73CDAE872F95C9840088E87B /* driving-animation-77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-77.png"; sourceTree = "<group>"; };
+		73CDAE882F95C9840088E87B /* driving-animation-78.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-78.png"; sourceTree = "<group>"; };
+		73CDAE892F95C9840088E87B /* driving-animation-79.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-79.png"; sourceTree = "<group>"; };
+		73CDAE8A2F95C9840088E87B /* driving-animation-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-80.png"; sourceTree = "<group>"; };
+		73CDAE8B2F95C9840088E87B /* driving-animation-81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driving-animation-81.png"; sourceTree = "<group>"; };
+		73CDAE8D2F95C9840088E87B /* YProgressHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YProgressHub.swift; sourceTree = "<group>"; };
+		73CDAE8E2F95C9840088E87B /* YProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YProgressView.swift; sourceTree = "<group>"; };
+		73CDAE8F2F95C9840088E87B /* YProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YProgressView.xib; sourceTree = "<group>"; };
+		81A14851BA79576C934B810F /* Pods_XPBase_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPBase_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1A8A7F87E3CF56E25ACAA63 /* Pods-XPBase_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Example.debug.xcconfig"; path = "Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		ADA16A7679405F305E71CA01 /* Pods-XPBase_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XPBase_Tests/Pods-XPBase_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B94AA9F1E1B8AEBD6C937ECA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C071947BA6E2E7B135099725 /* Pods_XPBase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPBase_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D725E8C7AFD2E7927CA625A3 /* Pods-XPBase_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Tests.release.xcconfig"; path = "Target Support Files/Pods-XPBase_Tests/Pods-XPBase_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		EAE35608CE306928D78630AD /* Pods-XPBase_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XPBase_Tests/Pods-XPBase_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F74D35B3309755020CCF6E5F /* Pods-XPBase_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Tests.release.xcconfig"; path = "Target Support Files/Pods-XPBase_Tests/Pods-XPBase_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F9AC730ADCE8F9AB7BEDD5A1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		FD386525868E149BCAA9B8D3 /* Pods-XPBase_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPBase_Example.release.xcconfig"; path = "Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63232473AAB37CB5A9652397 /* Pods_XPBase_Example.framework in Frameworks */,
+				9AF1531158DDB3C842C3CB33 /* Pods_XPBase_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,20 +236,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCF1DF456EAD87A9EADC1A6A /* Pods_XPBase_Tests.framework in Frameworks */,
+				542231DA49D01797DE0E5D1D /* Pods_XPBase_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B29FD28BFBEBBF5644FF66D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81A14851BA79576C934B810F /* Pods_XPBase_Example.framework */,
+				4721FBCDD026337A1BE24690 /* Pods_XPBase_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		60011E9C3B879FF1085C0B6D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B81D0078AF7C21D4B385535D /* Pods-XPBase_Example.debug.xcconfig */,
-				3B6828A87466869A1606AC9A /* Pods-XPBase_Example.release.xcconfig */,
-				EAE35608CE306928D78630AD /* Pods-XPBase_Tests.debug.xcconfig */,
-				D725E8C7AFD2E7927CA625A3 /* Pods-XPBase_Tests.release.xcconfig */,
+				A1A8A7F87E3CF56E25ACAA63 /* Pods-XPBase_Example.debug.xcconfig */,
+				FD386525868E149BCAA9B8D3 /* Pods-XPBase_Example.release.xcconfig */,
+				ADA16A7679405F305E71CA01 /* Pods-XPBase_Tests.debug.xcconfig */,
+				F74D35B3309755020CCF6E5F /* Pods-XPBase_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -94,7 +271,7 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				60011E9C3B879FF1085C0B6D /* Pods */,
-				D45FFF1E7CAF6B6E00B93BEF /* Frameworks */,
+				2B29FD28BFBEBBF5644FF66D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +296,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				73CDAE902F95C9840088E87B /* LoadingView */,
 			);
 			name = "Example for XPBase";
 			path = XPBase;
@@ -159,13 +337,103 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		D45FFF1E7CAF6B6E00B93BEF /* Frameworks */ = {
+		73CDAE8C2F95C9840088E87B /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
-				2301388A92F7E4B879BEF8B0 /* Pods_XPBase_Example.framework */,
-				C071947BA6E2E7B135099725 /* Pods_XPBase_Tests.framework */,
+				73CDAE3B2F95C9840088E87B /* driving-animation-1.png */,
+				73CDAE3C2F95C9840088E87B /* driving-animation-2.png */,
+				73CDAE3D2F95C9840088E87B /* driving-animation-3.png */,
+				73CDAE3E2F95C9840088E87B /* driving-animation-4.png */,
+				73CDAE3F2F95C9840088E87B /* driving-animation-5.png */,
+				73CDAE402F95C9840088E87B /* driving-animation-6.png */,
+				73CDAE412F95C9840088E87B /* driving-animation-7.png */,
+				73CDAE422F95C9840088E87B /* driving-animation-8.png */,
+				73CDAE432F95C9840088E87B /* driving-animation-9.png */,
+				73CDAE442F95C9840088E87B /* driving-animation-10.png */,
+				73CDAE452F95C9840088E87B /* driving-animation-11.png */,
+				73CDAE462F95C9840088E87B /* driving-animation-12.png */,
+				73CDAE472F95C9840088E87B /* driving-animation-13.png */,
+				73CDAE482F95C9840088E87B /* driving-animation-14.png */,
+				73CDAE492F95C9840088E87B /* driving-animation-15.png */,
+				73CDAE4A2F95C9840088E87B /* driving-animation-16.png */,
+				73CDAE4B2F95C9840088E87B /* driving-animation-17.png */,
+				73CDAE4C2F95C9840088E87B /* driving-animation-18.png */,
+				73CDAE4D2F95C9840088E87B /* driving-animation-19.png */,
+				73CDAE4E2F95C9840088E87B /* driving-animation-20.png */,
+				73CDAE4F2F95C9840088E87B /* driving-animation-21.png */,
+				73CDAE502F95C9840088E87B /* driving-animation-22.png */,
+				73CDAE512F95C9840088E87B /* driving-animation-23.png */,
+				73CDAE522F95C9840088E87B /* driving-animation-24.png */,
+				73CDAE532F95C9840088E87B /* driving-animation-25.png */,
+				73CDAE542F95C9840088E87B /* driving-animation-26.png */,
+				73CDAE552F95C9840088E87B /* driving-animation-27.png */,
+				73CDAE562F95C9840088E87B /* driving-animation-28.png */,
+				73CDAE572F95C9840088E87B /* driving-animation-29.png */,
+				73CDAE582F95C9840088E87B /* driving-animation-30.png */,
+				73CDAE592F95C9840088E87B /* driving-animation-31.png */,
+				73CDAE5A2F95C9840088E87B /* driving-animation-32.png */,
+				73CDAE5B2F95C9840088E87B /* driving-animation-33.png */,
+				73CDAE5C2F95C9840088E87B /* driving-animation-34.png */,
+				73CDAE5D2F95C9840088E87B /* driving-animation-35.png */,
+				73CDAE5E2F95C9840088E87B /* driving-animation-36.png */,
+				73CDAE5F2F95C9840088E87B /* driving-animation-37.png */,
+				73CDAE602F95C9840088E87B /* driving-animation-38.png */,
+				73CDAE612F95C9840088E87B /* driving-animation-39.png */,
+				73CDAE622F95C9840088E87B /* driving-animation-40.png */,
+				73CDAE632F95C9840088E87B /* driving-animation-41.png */,
+				73CDAE642F95C9840088E87B /* driving-animation-42.png */,
+				73CDAE652F95C9840088E87B /* driving-animation-43.png */,
+				73CDAE662F95C9840088E87B /* driving-animation-44.png */,
+				73CDAE672F95C9840088E87B /* driving-animation-45.png */,
+				73CDAE682F95C9840088E87B /* driving-animation-46.png */,
+				73CDAE692F95C9840088E87B /* driving-animation-47.png */,
+				73CDAE6A2F95C9840088E87B /* driving-animation-48.png */,
+				73CDAE6B2F95C9840088E87B /* driving-animation-49.png */,
+				73CDAE6C2F95C9840088E87B /* driving-animation-50.png */,
+				73CDAE6D2F95C9840088E87B /* driving-animation-51.png */,
+				73CDAE6E2F95C9840088E87B /* driving-animation-52.png */,
+				73CDAE6F2F95C9840088E87B /* driving-animation-53.png */,
+				73CDAE702F95C9840088E87B /* driving-animation-54.png */,
+				73CDAE712F95C9840088E87B /* driving-animation-55.png */,
+				73CDAE722F95C9840088E87B /* driving-animation-56.png */,
+				73CDAE732F95C9840088E87B /* driving-animation-57.png */,
+				73CDAE742F95C9840088E87B /* driving-animation-58.png */,
+				73CDAE752F95C9840088E87B /* driving-animation-59.png */,
+				73CDAE762F95C9840088E87B /* driving-animation-60.png */,
+				73CDAE772F95C9840088E87B /* driving-animation-61.png */,
+				73CDAE782F95C9840088E87B /* driving-animation-62.png */,
+				73CDAE792F95C9840088E87B /* driving-animation-63.png */,
+				73CDAE7A2F95C9840088E87B /* driving-animation-64.png */,
+				73CDAE7B2F95C9840088E87B /* driving-animation-65.png */,
+				73CDAE7C2F95C9840088E87B /* driving-animation-66.png */,
+				73CDAE7D2F95C9840088E87B /* driving-animation-67.png */,
+				73CDAE7E2F95C9840088E87B /* driving-animation-68.png */,
+				73CDAE7F2F95C9840088E87B /* driving-animation-69.png */,
+				73CDAE802F95C9840088E87B /* driving-animation-70.png */,
+				73CDAE812F95C9840088E87B /* driving-animation-71.png */,
+				73CDAE822F95C9840088E87B /* driving-animation-72.png */,
+				73CDAE832F95C9840088E87B /* driving-animation-73.png */,
+				73CDAE842F95C9840088E87B /* driving-animation-74.png */,
+				73CDAE852F95C9840088E87B /* driving-animation-75.png */,
+				73CDAE862F95C9840088E87B /* driving-animation-76.png */,
+				73CDAE872F95C9840088E87B /* driving-animation-77.png */,
+				73CDAE882F95C9840088E87B /* driving-animation-78.png */,
+				73CDAE892F95C9840088E87B /* driving-animation-79.png */,
+				73CDAE8A2F95C9840088E87B /* driving-animation-80.png */,
+				73CDAE8B2F95C9840088E87B /* driving-animation-81.png */,
 			);
-			name = Frameworks;
+			path = Refresh;
+			sourceTree = "<group>";
+		};
+		73CDAE902F95C9840088E87B /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				73CDAE8C2F95C9840088E87B /* Refresh */,
+				73CDAE8D2F95C9840088E87B /* YProgressHub.swift */,
+				73CDAE8E2F95C9840088E87B /* YProgressView.swift */,
+				73CDAE8F2F95C9840088E87B /* YProgressView.xib */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +443,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "XPBase_Example" */;
 			buildPhases = (
-				665E47DBC91A884409979348 /* [CP] Check Pods Manifest.lock */,
+				94A458FF9D8CD0D801E8C133 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				97623C631C06BA5B1B2108CD /* [CP] Embed Pods Frameworks */,
+				7586C31E40363071B83CBB62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,11 +462,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "XPBase_Tests" */;
 			buildPhases = (
-				C45199E054E1AB9FD934BC00 /* [CP] Check Pods Manifest.lock */,
+				11E863F0D58C97785AF76A4D /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				1C9D6FF61457873F33EEEC0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,8 +483,9 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -232,11 +500,10 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "XPBase" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -259,6 +526,88 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				73CDAE912F95C9840088E87B /* driving-animation-14.png in Resources */,
+				73CDAE922F95C9840088E87B /* driving-animation-70.png in Resources */,
+				73CDAE932F95C9840088E87B /* driving-animation-33.png in Resources */,
+				73CDAE942F95C9840088E87B /* driving-animation-1.png in Resources */,
+				73CDAE952F95C9840088E87B /* driving-animation-43.png in Resources */,
+				73CDAE962F95C9840088E87B /* driving-animation-19.png in Resources */,
+				73CDAE972F95C9840088E87B /* driving-animation-59.png in Resources */,
+				73CDAE982F95C9840088E87B /* driving-animation-71.png in Resources */,
+				73CDAE992F95C9840088E87B /* driving-animation-62.png in Resources */,
+				73CDAE9A2F95C9840088E87B /* driving-animation-30.png in Resources */,
+				73CDAE9B2F95C9840088E87B /* driving-animation-55.png in Resources */,
+				73CDAE9C2F95C9840088E87B /* driving-animation-7.png in Resources */,
+				73CDAE9D2F95C9840088E87B /* driving-animation-50.png in Resources */,
+				73CDAE9E2F95C9840088E87B /* driving-animation-45.png in Resources */,
+				73CDAE9F2F95C9840088E87B /* driving-animation-15.png in Resources */,
+				73CDAEA02F95C9840088E87B /* driving-animation-37.png in Resources */,
+				73CDAEA12F95C9840088E87B /* driving-animation-54.png in Resources */,
+				73CDAEA22F95C9840088E87B /* driving-animation-35.png in Resources */,
+				73CDAEA32F95C9840088E87B /* driving-animation-56.png in Resources */,
+				73CDAEA42F95C9840088E87B /* driving-animation-77.png in Resources */,
+				73CDAEA52F95C9840088E87B /* driving-animation-68.png in Resources */,
+				73CDAEA62F95C9840088E87B /* driving-animation-28.png in Resources */,
+				73CDAEA72F95C9840088E87B /* driving-animation-31.png in Resources */,
+				73CDAEA82F95C9840088E87B /* driving-animation-20.png in Resources */,
+				73CDAEA92F95C9840088E87B /* driving-animation-74.png in Resources */,
+				73CDAEAA2F95C9840088E87B /* driving-animation-3.png in Resources */,
+				73CDAEAB2F95C9840088E87B /* driving-animation-63.png in Resources */,
+				73CDAEAC2F95C9840088E87B /* driving-animation-5.png in Resources */,
+				73CDAEAD2F95C9840088E87B /* driving-animation-49.png in Resources */,
+				73CDAEAE2F95C9840088E87B /* driving-animation-61.png in Resources */,
+				73CDAEAF2F95C9840088E87B /* driving-animation-69.png in Resources */,
+				73CDAEB02F95C9840088E87B /* driving-animation-67.png in Resources */,
+				73CDAEB12F95C9840088E87B /* driving-animation-60.png in Resources */,
+				73CDAEB22F95C9840088E87B /* driving-animation-8.png in Resources */,
+				73CDAEB32F95C9840088E87B /* driving-animation-57.png in Resources */,
+				73CDAEB42F95C9840088E87B /* driving-animation-47.png in Resources */,
+				73CDAEB52F95C9840088E87B /* driving-animation-76.png in Resources */,
+				73CDAEB62F95C9840088E87B /* driving-animation-41.png in Resources */,
+				73CDAEB72F95C9840088E87B /* driving-animation-73.png in Resources */,
+				73CDAEB82F95C9840088E87B /* driving-animation-42.png in Resources */,
+				73CDAEB92F95C9840088E87B /* driving-animation-12.png in Resources */,
+				73CDAEBA2F95C9840088E87B /* driving-animation-10.png in Resources */,
+				73CDAEBB2F95C9840088E87B /* driving-animation-22.png in Resources */,
+				73CDAEBC2F95C9840088E87B /* driving-animation-21.png in Resources */,
+				73CDAEBD2F95C9840088E87B /* driving-animation-65.png in Resources */,
+				73CDAEBE2F95C9840088E87B /* driving-animation-4.png in Resources */,
+				73CDAEBF2F95C9840088E87B /* driving-animation-6.png in Resources */,
+				73CDAEC02F95C9840088E87B /* driving-animation-9.png in Resources */,
+				73CDAEC12F95C9840088E87B /* driving-animation-52.png in Resources */,
+				73CDAEC22F95C9840088E87B /* driving-animation-51.png in Resources */,
+				73CDAEC32F95C9840088E87B /* driving-animation-72.png in Resources */,
+				73CDAEC42F95C9840088E87B /* driving-animation-25.png in Resources */,
+				73CDAEC52F95C9840088E87B /* driving-animation-26.png in Resources */,
+				73CDAEC62F95C9840088E87B /* driving-animation-32.png in Resources */,
+				73CDAEC72F95C9840088E87B /* driving-animation-80.png in Resources */,
+				73CDAEC82F95C9840088E87B /* driving-animation-75.png in Resources */,
+				73CDAEC92F95C9840088E87B /* driving-animation-18.png in Resources */,
+				73CDAECA2F95C9840088E87B /* driving-animation-34.png in Resources */,
+				73CDAECB2F95C9840088E87B /* driving-animation-29.png in Resources */,
+				73CDAECC2F95C9840088E87B /* driving-animation-27.png in Resources */,
+				73CDAECD2F95C9840088E87B /* driving-animation-24.png in Resources */,
+				73CDAECE2F95C9840088E87B /* driving-animation-23.png in Resources */,
+				73CDAECF2F95C9840088E87B /* driving-animation-53.png in Resources */,
+				73CDAED02F95C9840088E87B /* driving-animation-58.png in Resources */,
+				73CDAED12F95C9840088E87B /* driving-animation-79.png in Resources */,
+				73CDAED22F95C9840088E87B /* driving-animation-11.png in Resources */,
+				73CDAED32F95C9840088E87B /* driving-animation-17.png in Resources */,
+				73CDAED42F95C9840088E87B /* driving-animation-64.png in Resources */,
+				73CDAED52F95C9840088E87B /* driving-animation-40.png in Resources */,
+				73CDAED62F95C9840088E87B /* driving-animation-2.png in Resources */,
+				73CDAED72F95C9840088E87B /* driving-animation-81.png in Resources */,
+				73CDAED82F95C9840088E87B /* driving-animation-39.png in Resources */,
+				73CDAED92F95C9840088E87B /* driving-animation-44.png in Resources */,
+				73CDAEDA2F95C9840088E87B /* driving-animation-78.png in Resources */,
+				73CDAEDB2F95C9840088E87B /* driving-animation-16.png in Resources */,
+				73CDAEDC2F95C9840088E87B /* driving-animation-66.png in Resources */,
+				73CDAEDD2F95C9840088E87B /* driving-animation-38.png in Resources */,
+				73CDAEDE2F95C9840088E87B /* YProgressView.xib in Resources */,
+				73CDAEDF2F95C9840088E87B /* driving-animation-13.png in Resources */,
+				73CDAEE02F95C9840088E87B /* driving-animation-46.png in Resources */,
+				73CDAEE12F95C9840088E87B /* driving-animation-36.png in Resources */,
+				73CDAEE22F95C9840088E87B /* driving-animation-48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,79 +621,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C9D6FF61457873F33EEEC0D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XPBase_Tests/Pods-XPBase_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XPBase_Tests/Pods-XPBase_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		665E47DBC91A884409979348 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XPBase_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97623C631C06BA5B1B2108CD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GKNavigationBar/GKNavigationBar.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/XPBase/XPBase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKNavigationBar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XPBase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C45199E054E1AB9FD934BC00 /* [CP] Check Pods Manifest.lock */ = {
+		11E863F0D58C97785AF76A4D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,6 +643,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7586C31E40363071B83CBB62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XPBase_Example/Pods-XPBase_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94A458FF9D8CD0D801E8C133 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XPBase_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -374,6 +690,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A7756D2F18E70B006CB079 /* TestAPIService.swift in Sources */,
+				73CDAEE32F95C9840088E87B /* YProgressHub.swift in Sources */,
+				73CDAEE42F95C9840088E87B /* YProgressView.swift in Sources */,
 				73A7756E2F18E70B006CB079 /* TestListViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				734F72CC2E97480900FF74E7 /* UIColor+Operation.swift in Sources */,
@@ -431,14 +749,17 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -449,6 +770,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -464,10 +786,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -484,14 +807,17 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -502,6 +828,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -510,22 +837,28 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B81D0078AF7C21D4B385535D /* Pods-XPBase_Example.debug.xcconfig */;
+			baseConfigurationReference = A1A8A7F87E3CF56E25ACAA63 /* Pods-XPBase_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = XPBase/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,12 +869,16 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B6828A87466869A1606AC9A /* Pods-XPBase_Example.release.xcconfig */;
+			baseConfigurationReference = FD386525868E149BCAA9B8D3 /* Pods-XPBase_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = XPBase/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -552,7 +889,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAE35608CE306928D78630AD /* Pods-XPBase_Tests.debug.xcconfig */;
+			baseConfigurationReference = ADA16A7679405F305E71CA01 /* Pods-XPBase_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -563,8 +900,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -575,15 +916,19 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D725E8C7AFD2E7927CA625A3 /* Pods-XPBase_Tests.release.xcconfig */;
+			baseConfigurationReference = F74D35B3309755020CCF6E5F /* Pods-XPBase_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

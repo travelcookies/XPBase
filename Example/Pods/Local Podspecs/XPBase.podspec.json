@@ -16,9 +16,8 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "12.0"
   },
-  "source_files": "XPBase/Classes/**/*",
   "resource_bundles": {
     "XPBase": [
       "XPBase/Classes/**/*.xib",

@@ -7,25 +7,45 @@
 //
 
 import UIKit
+import Moya
+import XPBase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // 创建窗口
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+
         // 创建导航控制器并设置根视图控制器
         let testListVC = TestListViewController()
         let navController = UINavigationController(rootViewController: testListVC)
-        
+
+        // 注册加载状态回调
+        MoyaConfig.loadingHandler = { isLoading in
+            if isLoading {
+                // 显示加载指示器
+                YProgressHub.share.loading()
+            } else {
+                // 隐藏加载指示器
+                YProgressHub.share.hidden()
+            }
+        }
+
+        // 配置自定义网络状态检查逻辑
+        MoyaConfig.networkStatusChecker = {
+            let isUse = ReachableManager.shared.stateUseless
+            return !isUse
+        }
+
+        // 启动网络状态监听
+        ReachableManager.shared.checkNetworkState()
+
         // 设置窗口的根视图控制器
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 
@@ -50,7 +70,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

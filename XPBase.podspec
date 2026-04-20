@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/travelcookies/XPBase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
 
   # s.source_files = 'XPBase/Classes/**/*'
 
@@ -56,7 +56,6 @@ TODO: Add long description of the pod here.
   # 工具
   s.subspec 'Tool' do |ss|
     ss.source_files = 'XPBase/Classes/Tool'
-#    ss.source_files = 'XPBase/Classes/Tool/**/*'
   end
 
 

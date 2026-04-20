@@ -11,109 +11,177 @@ import HandyJSON
 import Moya
 import Toast_Swift
 
+// 网络请求配置结构体
+public struct MoyaProviderConfig {
+    /// 成功响应的状态码
+    public var successCode: String = "1"
+    /// 未授权状态码
+    public var unauthorizedCode: String = "401"
+    /// CodeMsgModel 类名标识
+    public var codeMsgModelIdentifier: String = "CodeMsgModel"
+    /// 登录页面通知名称
+    public var loginNotificationName: String = "NotificationShowLoginName"
+    /// 服务器数据错误提示
+    public var serverDataErrorText: String = "服务器数据错误"
+    /// 网络请求失败提示
+    public var networkErrorText: String = "网络请求失败"
+    /// 网络状态错误提示
+    public var networkStatusErrorText: String = "请检查您的网络"
+    /// 加载状态回调
+    public var loadingHandler: ((Bool) -> Void)?
+    /// 网络状态检查闭包
+    public var networkStatusChecker: (() -> Bool)?
+}
+
+// 网络请求配置
+public var MoyaConfig = MoyaProviderConfig()
+
 public extension MoyaProvider {
-    /*
-     当有返回值的方法未得到接收和使用时通常会出现"Result of call to "getSome()" is unused"的提示
-     虽然不会报错，但是影响美观，加上@discardableResult就可以取消这种警告
-     */
+    /// 发送网络请求并解析响应数据
+    /// - Parameters:
+    ///   - target: API 目标
+    ///   - model: 响应数据模型类型
+    ///   - showLoading: 是否显示加载指示器
+    ///   - showMsg: 是否显示错误信息
+    ///   - responseSuccessCode: 成功响应的状态码
+    ///   - completion: 响应完成回调
+    /// - Returns: 可取消的请求对象
     @discardableResult
     func request<T>(_ target: Target,
                     model: T.Type,
                     showLoading: Bool = false,
                     showMsg: Bool = true,
-                    responseSuccessCode: String = "1",
+                    responseSuccessCode: String = MoyaConfig.successCode,
                     completion: ((_ returnData: T?) -> Void)?) -> Cancellable? {
-        if !networkStatusJudgment() {
-            showToastText(text: "请检查您的网络")
+        // 网络状态检查
+        let isNetworkAvailable: Bool
+        if let networkStatusChecker = MoyaConfig.networkStatusChecker {
+            isNetworkAvailable = networkStatusChecker()
+        } else {
+            isNetworkAvailable = networkStatusJudgment()
+        }
+        
+        guard isNetworkAvailable else {
+            showToastText(text: MoyaConfig.networkStatusErrorText)
+            completion?(nil)
             return nil
         }
 
-        if showLoading == true {
-            YProgressHub.share.loading()
+        // 显示加载指示器
+        if showLoading {
+            MoyaConfig.loadingHandler?(true)
         }
 
-        return request(target, completion: { result in
-            if showLoading == true {
-                YProgressHub.share.hidden()
+        // 发送网络请求
+        return request(target) { [weak self] result in
+            // 隐藏加载指示器
+            if showLoading {
+                MoyaConfig.loadingHandler?(false)
             }
-            guard completion != nil else { return }
 
+            // 处理响应结果
             switch result {
             case let .success(response):
-
-                let jsonDic: [String: Any]? = try! JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as? [String: Any]
-
-                if jsonDic != nil {
-                    print("ResponseSuccessCode", target, jsonDic ?? [:])
-
-                    guard let jsonData = JSONDeserializer<BaseModel<T>>.deserializeFrom(dict: jsonDic) else {
-                        showToastText(text: "服务器数据错误")
-                        completion!(nil)
-                        return
-                    }
-                    if jsonData.code == responseSuccessCode {
-                        let clsString = String(describing: type(of: jsonData))
-                        if clsString.contains("CodeMsgModel") {
-                            print("==== code msg model =====")
-                            if jsonData.data == nil {
-                                let m = CodeMsgModel()
-                                m.code = Int(jsonData.code ?? "0") ?? -1
-                                m.msg = jsonData.msg
-                                jsonData.data = (m as! T)
-                            }
-                        }
-                        completion!(jsonData.data)
-
-                    } else if jsonData.code == "401" { /** 发送登录页面通知 */
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationShowLoginName"), object: nil)
-                    } else {
-                        if showMsg {
-                            showToastText(text: jsonData.msg ?? "")
-                        }
-                        completion!(nil)
-                    }
-                } else {
-                    showToastText(text: "服务器访问失败")
-                    completion!(nil)
-                }
+                self?.handleSuccessResponse(response, model: model, responseSuccessCode: responseSuccessCode, showMsg: showMsg, completion: completion)
             case let .failure(error):
-                self.showError(error)
-                completion!(nil)
-                break
+                self?.handleErrorResponse(error, completion: completion)
             }
-        })
+        }
     }
 
-    fileprivate func showError(_ error: MoyaError) {
+    /// 处理成功响应
+    /// - Parameters:
+    ///   - response: 网络响应
+    ///   - model: 响应数据模型类型
+    ///   - responseSuccessCode: 成功响应的状态码
+    ///   - showMsg: 是否显示错误信息
+    ///   - completion: 响应完成回调
+    private func handleSuccessResponse<T>(_ response: Response, model: T.Type, responseSuccessCode: String, showMsg: Bool, completion: ((_ returnData: T?) -> Void)?) {
+        // 解析 JSON 数据
+        guard let jsonDic = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: Any] else {
+            showToastText(text: MoyaConfig.serverDataErrorText)
+            completion?(nil)
+            return
+        }
+
+        // 打印响应数据
+        print("ResponseSuccessCode", response.request?.url?.absoluteString ?? "", jsonDic ?? [:])
+
+        // 解析响应模型
+        guard let jsonData = JSONDeserializer<BaseModel<T>>.deserializeFrom(dict: jsonDic) else {
+            showToastText(text: MoyaConfig.serverDataErrorText)
+            completion?(nil)
+            return
+        }
+
+        // 处理响应状态码
+        if jsonData.code == responseSuccessCode {
+            // 处理 CodeMsgModel 特殊情况
+            let clsString = String(describing: type(of: jsonData))
+            if clsString.contains(MoyaConfig.codeMsgModelIdentifier) && jsonData.data == nil {
+                let m = CodeMsgModel()
+                m.code = Int(jsonData.code ?? "0") ?? -1
+                m.msg = jsonData.msg
+                jsonData.data = (m as! T)
+            }
+            completion?(jsonData.data)
+        } else if jsonData.code == MoyaConfig.unauthorizedCode {
+            // 发送登录页面通知
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: MoyaConfig.loginNotificationName), object: nil)
+            completion?(nil)
+        } else {
+            // 显示错误信息
+            if showMsg, let msg = jsonData.msg, !msg.isEmpty {
+                showToastText(text: msg)
+            }
+            completion?(nil)
+        }
+    }
+
+    /// 处理错误响应
+    /// - Parameters:
+    ///   - error: 网络错误
+    ///   - completion: 响应完成回调
+    private func handleErrorResponse<T>(_ error: MoyaError, completion: ((_ returnData: T?) -> Void)?) {
+        // 打印错误信息
+        printError(error)
+        // 显示网络错误提示
+        showToastText(text: MoyaConfig.networkErrorText)
+        completion?(nil)
+    }
+
+    /// 打印错误信息
+    /// - Parameter error: 网络错误
+    private func printError(_ error: MoyaError) {
         switch error {
         case let .imageMapping(response):
-            print("错误原因：\(error.errorDescription ?? "")")
-            print(response)
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
+            print("响应：\(response)")
         case let .jsonMapping(response):
-            print("错误原因：\(error.errorDescription ?? "")")
-            print(response)
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
+            print("响应：\(response)")
         case let .statusCode(response):
-            print("错误原因：\(error.errorDescription ?? "")")
-            print(response)
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
+            print("响应：\(response)")
         case let .stringMapping(response):
-            print("错误原因：\(error.errorDescription ?? "")")
-            print(response)
-        case let .underlying(_, response):
-            print("错误原因：\(error.errorDescription ?? "")")
-            print(error)
-            print(response as Any)
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
+            print("响应：\(response)")
+        case let .underlying(underlyingError, response):
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
+            print("底层错误：\(underlyingError)")
+            if let response = response {
+                print("响应：\(response)")
+            } else {
+                print("响应：无响应")
+            }
         case .requestMapping:
-            print("错误原因：\(error.errorDescription ?? "")")
-            print("nil")
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
         case .objectMapping:
-            print("错误原因：\(error.errorDescription ?? "")")
-            print("nil")
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
         case .encodableMapping:
-            print("错误原因：\(error.errorDescription ?? "")")
-            print("nil")
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
         case .parameterEncoding:
-            print("错误原因：\(error.errorDescription ?? "")")
-            print("nil")
+            print("错误原因：\(error.errorDescription ?? "未知错误")")
         }
     }
 }

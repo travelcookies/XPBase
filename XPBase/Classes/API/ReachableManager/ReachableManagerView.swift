@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ReachableManagerView: UIView {
+public class ReachableManagerView: UIView {
 
-    class func initView() -> ReachableManagerView {
+    public class func initView() -> ReachableManagerView {
         // 从正确的bundle中加载xib文件
         let bundle = Bundle(for: self)
         return bundle.loadNibNamed("ReachableManagerView", owner: nil, options: nil)?.first as! ReachableManagerView
