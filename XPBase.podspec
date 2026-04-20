@@ -56,6 +56,8 @@ TODO: Add long description of the pod here.
   # 工具
   s.subspec 'Tool' do |ss|
     ss.source_files = 'XPBase/Classes/Tool'
+    ss.source_files = 'XPBase/Classes/Tool/**/*'
+
   end
 
 
@@ -67,4 +69,6 @@ TODO: Add long description of the pod here.
   s.dependency 'Toast-Swift'
   s.dependency 'ReachabilitySwift'
   s.dependency 'GKNavigationBar/NavigationBar'
+  s.dependency 'URLNavigator'
+
  end

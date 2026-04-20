@@ -9,7 +9,8 @@ PODS:
   - ReachabilitySwift (5.0.0)
   - SnapKit (5.6.0)
   - Toast-Swift (5.0.1)
-  - XPBase (0.1.0):
+  - URLNavigator (2.5.1)
+  - XPBase (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
     - HandyJSON
@@ -17,11 +18,12 @@ PODS:
     - ReachabilitySwift
     - SnapKit
     - Toast-Swift
-    - XPBase/API (= 0.1.0)
-    - XPBase/Extensions (= 0.1.0)
-    - XPBase/Log (= 0.1.0)
-    - XPBase/Tool (= 0.1.0)
-  - XPBase/API (0.1.0):
+    - URLNavigator
+    - XPBase/API (= 0.1.1)
+    - XPBase/Extensions (= 0.1.1)
+    - XPBase/Log (= 0.1.1)
+    - XPBase/Tool (= 0.1.1)
+  - XPBase/API (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
     - HandyJSON
@@ -29,7 +31,8 @@ PODS:
     - ReachabilitySwift
     - SnapKit
     - Toast-Swift
-  - XPBase/Extensions (0.1.0):
+    - URLNavigator
+  - XPBase/Extensions (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
     - HandyJSON
@@ -37,7 +40,8 @@ PODS:
     - ReachabilitySwift
     - SnapKit
     - Toast-Swift
-  - XPBase/Log (0.1.0):
+    - URLNavigator
+  - XPBase/Log (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
     - HandyJSON
@@ -45,7 +49,8 @@ PODS:
     - ReachabilitySwift
     - SnapKit
     - Toast-Swift
-  - XPBase/Tool (0.1.0):
+    - URLNavigator
+  - XPBase/Tool (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
     - HandyJSON
@@ -53,6 +58,7 @@ PODS:
     - ReachabilitySwift
     - SnapKit
     - Toast-Swift
+    - URLNavigator
 
 DEPENDENCIES:
   - HandyJSON
@@ -68,6 +74,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - SnapKit
     - Toast-Swift
+    - URLNavigator
 
 EXTERNAL SOURCES:
   XPBase:
@@ -81,7 +88,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  XPBase: aa0b73842100bf83bc229bf6cc4af9ab0587d077
+  URLNavigator: e9c0426ba6e6ac57f34d018bbf3df840797f984d
+  XPBase: 5cf8feab163f2622f7bdf5d648309ef8972138b9
 
 PODFILE CHECKSUM: 93f267890b2099add16348a53a4e2515e3e00655
 

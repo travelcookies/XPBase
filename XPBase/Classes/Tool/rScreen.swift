@@ -130,6 +130,20 @@ extension UIApplication {
     }
 }
 
+extension UIDevice {
+    /// 获取设备型号标识符
+    var modelIdentifier: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        return identifier
+    }
+}
+
 // MARK: - 设备类型判断（基于屏幕高度，可根据需求保留或删除）
 
 extension rScreen {
@@ -140,20 +154,144 @@ extension rScreen {
         case iPhone6 // 4.7寸
         case iPhone6P // 5.5寸
         case iPhoneX // 5.8寸
+        case iPhoneXSMax // 6.5寸
+        case iPhone11 // 6.1寸
+        case iPhone12Mini // 5.4寸
+        case iPhone12 // 6.1寸
+        case iPhone12ProMax // 6.7寸
+        case iPhone13Mini // 5.4寸
+        case iPhone13 // 6.1寸
+        case iPhone13ProMax // 6.7寸
+        case iPhone14 // 6.1寸
+        case iPhone14Plus // 6.7寸
+        case iPhone14Pro // 6.1寸
+        case iPhone14ProMax // 6.7寸
+        case iPhone15 // 6.1寸
+        case iPhone15Plus // 6.7寸
+        case iPhone15Pro // 6.1寸
+        case iPhone15ProMax // 6.7寸
+        case iPhone16 // 6.1寸
+        case iPhone16Plus // 6.7寸
+        case iPhone16Pro // 6.1寸
+        case iPhone16ProMax // 6.7寸
+        case iPhone17 // 6.1寸
+        case iPhone17Plus // 6.7寸
+        case iPhone17Pro // 6.1寸
+        case iPhone17ProMax // 6.7寸
         case other
     }
 
     /// 获取当前设备类型
     public static var deviceType: DeviceType {
+        // 首先尝试通过设备型号判断
+        let deviceModel = UIDevice.current.modelIdentifier
+        
+        // 根据设备型号判断
+        switch deviceModel {
+        // iPhone 4 系列
+        case "iPhone3,1", "iPhone3,2", "iPhone3,3":
+            return .iPhone4
+        // iPhone 5 系列
+        case "iPhone5,1", "iPhone5,2":
+            return .iPhone5
+        case "iPhone5,3", "iPhone5,4":
+            return .iPhone5
+        // iPhone 6 系列
+        case "iPhone7,2":
+            return .iPhone6
+        case "iPhone7,1":
+            return .iPhone6P
+        // iPhone X 系列
+        case "iPhone10,1", "iPhone10,4":
+            return .iPhoneX
+        case "iPhone10,2", "iPhone10,5":
+            return .iPhoneXSMax
+        // iPhone 11 系列
+        case "iPhone12,1":
+            return .iPhone11
+        case "iPhone12,5":
+            return .iPhone11
+        // iPhone 12 系列
+        case "iPhone13,1":
+            return .iPhone12Mini
+        case "iPhone13,2":
+            return .iPhone12
+        case "iPhone13,3":
+            return .iPhone12
+        case "iPhone13,4":
+            return .iPhone12ProMax
+        // iPhone 13 系列
+        case "iPhone14,4":
+            return .iPhone13Mini
+        case "iPhone14,5":
+            return .iPhone13
+        case "iPhone14,2":
+            return .iPhone13
+        case "iPhone14,3":
+            return .iPhone13ProMax
+        // iPhone 14 系列
+        case "iPhone14,7":
+            return .iPhone14
+        case "iPhone14,8":
+            return .iPhone14Plus
+        case "iPhone15,2":
+            return .iPhone14Pro
+        case "iPhone15,3":
+            return .iPhone14ProMax
+        // iPhone 15 系列
+        case "iPhone15,4":
+            return .iPhone15
+        case "iPhone15,5":
+            return .iPhone15Plus
+        case "iPhone16,1":
+            return .iPhone15Pro
+        case "iPhone16,2":
+            return .iPhone15ProMax
+        // iPhone 16 系列
+        case "iPhone16,6":
+            return .iPhone16
+        case "iPhone16,7":
+            return .iPhone16Plus
+        case "iPhone17,2":
+            return .iPhone16Pro
+        case "iPhone17,3":
+            return .iPhone16ProMax
+        // iPhone 17 系列
+        case "iPhone17,6":
+            return .iPhone17
+        case "iPhone17,7":
+            return .iPhone17Plus
+        case "iPhone18,2":
+            return .iPhone17Pro
+        case "iPhone18,3":
+            return .iPhone17ProMax
+        default:
+            // 如果无法通过设备型号判断，回退到屏幕高度判断
+            return deviceTypeByScreenHeight
+        }
+    }
+    
+    /// 根据屏幕高度判断设备类型（备用方法）
+    private static var deviceTypeByScreenHeight: DeviceType {
         switch height {
-        case 480 ... 568: // 3.5-4寸
-            return height < 568 ? .iPhone4 : .iPhone5
+        case 480: // 3.5寸
+            return .iPhone4
+        case 568: // 4寸
+            return .iPhone5
         case 667: // 4.7寸
             return .iPhone6
         case 736: // 5.5寸
             return .iPhone6P
-        case 812...: // 5.8寸及以上
+        case 812: // 5.8寸
             return .iPhoneX
+        case 896: // 6.1寸 (iPhone 11, 12, 13, 14, 15, 16, 17)
+            return .iPhone11
+        case 844: // 5.4寸 (iPhone 12 Mini, 13 Mini)
+            return .iPhone12Mini
+        case 926: // 6.7寸 (iPhone 12 Pro Max, 13 Pro Max, 14 Plus, 14 Pro Max, 15 Plus, 15 Pro Max, 16 Plus, 16 Pro Max, 17 Plus, 17 Pro Max)
+            return .iPhone12ProMax
+        case 852: // 6.1寸 (iPhone 14 Pro, 15 Pro, 16 Pro, 17 Pro)
+            return .iPhone14Pro
         default:
             return .other
         }
