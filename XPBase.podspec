@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XPBase'
-  s.version          = '0.1.1'
-  s.summary          = 'A short description of XPBase.'
+  s.version          = '1.2.0'
+  s.summary          = 'iOS 开发基础工具库，提供屏幕适配、网络请求、UI组件、日志等常用功能。'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,10 +18,34 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+XPBase 是一个功能丰富的 iOS 开发基础工具库，包含以下核心模块：
+
+UIKit 模块
+- XPScreen: 屏幕信息工具类，提供全面的屏幕尺寸、设备类型、安全区域等信息
+- XPDevice: 设备信息工具类
+- XPColor/XPFont: 颜色和字体工具类
+- 各种自定义 UI 组件（XPUnderlineButton、XPCountDownButton 等）
+
+Tool 模块
+- XPTimer: 线程安全的定时器管理
+- XPDebounce/XPThrottle: 防抖和节流工具
+- XPAsync: 异步任务调度
+- XPTime: 时间工具类
+- XPCacheManager/XPKeyChain: 缓存和安全存储
+
+Network 模块
+- 基于 Moya 的网络请求封装
+- XPNetworkLoggerPlugin: 网络日志插件
+- XPReachableManager: 网络可达性监听
+
+Extensions 模块
+- 丰富的 Swift 扩展（Array、String、Date、UIColor、UIView）
+
+详细文档请参考 docs/ 目录。
                        DESC
 
-  s.homepage         = 'https://github.com/roc-mini/XPBase'
+  s.homepage         = 'https://github.com/travelcookies/XPBase'
+  s.documentation_url = 'https://github.com/travelcookies/XPBase/tree/main/XPBase/docs'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'roc-mini' => 'cjdesyue@126.com' }
