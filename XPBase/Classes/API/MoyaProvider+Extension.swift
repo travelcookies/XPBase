@@ -104,10 +104,7 @@ public extension MoyaProvider {
             return
         }
 
-        // 打印响应数据
-        print("ResponseSuccessCode", response.request?.url?.absoluteString ?? "", jsonDic ?? [:])
-
-        // 解析响应模型
+        // 解析响应模型（NetworkLoggerPlugin 已处理日志输出）
         guard let jsonData = JSONDeserializer<BaseModel<T>>.deserializeFrom(dict: jsonDic) else {
             showToastText(text: MoyaConfig.serverDataErrorText)
             completion?(nil)
@@ -143,45 +140,8 @@ public extension MoyaProvider {
     ///   - error: 网络错误
     ///   - completion: 响应完成回调
     private func handleErrorResponse<T>(_ error: MoyaError, completion: ((_ returnData: T?) -> Void)?) {
-        // 打印错误信息
-        printError(error)
-        // 显示网络错误提示
+        // 显示网络错误提示（NetworkLoggerPlugin 已处理日志输出）
         showToastText(text: MoyaConfig.networkErrorText)
         completion?(nil)
-    }
-
-    /// 打印错误信息
-    /// - Parameter error: 网络错误
-    private func printError(_ error: MoyaError) {
-        switch error {
-        case let .imageMapping(response):
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-            print("响应：\(response)")
-        case let .jsonMapping(response):
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-            print("响应：\(response)")
-        case let .statusCode(response):
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-            print("响应：\(response)")
-        case let .stringMapping(response):
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-            print("响应：\(response)")
-        case let .underlying(underlyingError, response):
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-            print("底层错误：\(underlyingError)")
-            if let response = response {
-                print("响应：\(response)")
-            } else {
-                print("响应：无响应")
-            }
-        case .requestMapping:
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-        case .objectMapping:
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-        case .encodableMapping:
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-        case .parameterEncoding:
-            print("错误原因：\(error.errorDescription ?? "未知错误")")
-        }
     }
 }
