@@ -62,13 +62,13 @@ public class XPReachableManager {
                 reachableManagerView!.snp.makeConstraints { make in
                     make.top.equalTo(-100)
                     make.left.right.equalTo(0)
-                    make.height.equalTo(rScreen.isFullScreen == true ? 54 : 34)
+                    make.height.equalTo(XPScreen.isFullScreen == true ? 54 : 34)
                 }
 
                 UIView.animate(withDuration: 0.3) {
                     self.reachableManagerView!.snp.remakeConstraints { make in
                         make.left.right.top.equalTo(0)
-                        make.height.equalTo(rScreen.isFullScreen == true ? 54 : 34)
+                        make.height.equalTo(XPScreen.isFullScreen == true ? 54 : 34)
                     }
                     self.reachableManagerView?.superview!.layoutIfNeeded()
                 }
@@ -83,7 +83,7 @@ public class XPReachableManager {
                         self.reachableManagerView!.snp.makeConstraints { make in
                             make.top.equalTo(-100)
                             make.left.right.equalTo(0)
-                            make.height.equalTo(rScreen.isFullScreen == true ? 54 : 34)
+                            make.height.equalTo(XPScreen.isFullScreen == true ? 54 : 34)
                         }
                         self.reachableManagerView?.superview!.layoutIfNeeded()
                     }) { _ in

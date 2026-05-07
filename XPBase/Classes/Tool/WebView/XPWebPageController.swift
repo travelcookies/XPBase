@@ -59,9 +59,9 @@ public class XPWebPageController: UIViewController {
         config.preferences.javaScriptEnabled = true
 
         let screenWidth = UIScreen.main.bounds.width
-        let frameRect: CGRect = CGRect(x: 0, y: rScreen.navigationBarHeight, width: screenWidth, height: rScreen.height - rScreen.navigationBarHeight)
+        let frameRect: CGRect = CGRect(x: 0, y: XPScreen.navigationBarHeight, width: screenWidth, height: XPScreen.height - XPScreen.navigationBarHeight)
         let webView = WKWebView(frame: frameRect, configuration: config)
-        webView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: rScreen.safeAreaBottom, right: 0)
+        webView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: XPScreen.safeAreaBottom, right: 0)
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         webView.navigationDelegate = self
         webView.scrollView.contentInsetAdjustmentBehavior = .never
@@ -75,7 +75,7 @@ public class XPWebPageController: UIViewController {
         progress.trackTintColor = .clear
         progress.progressTintColor = UIColor.orange
         let screenWidth = UIScreen.main.bounds.width
-        progress.frame = CGRect(x: 0, y: rScreen.navigationBarHeight, width: screenWidth, height: 2)
+        progress.frame = CGRect(x: 0, y: XPScreen.navigationBarHeight, width: screenWidth, height: 2)
         let transform = CGAffineTransform(scaleX: 1.0, y: 0.5)
         progress.transform = transform
         return progress

@@ -39,12 +39,22 @@ import UIKit
 extension String: XPCompatible {}
 
 public extension XP where Base == String {
-    /// MD5加密
+    /// MD5加密（大写）
     var md5: String {
         let ccharArray = base.cString(using: String.Encoding.utf8)
         var uint8Array = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
         CC_MD5(ccharArray, CC_LONG(ccharArray!.count - 1), &uint8Array)
         return uint8Array.reduce("") { $0 + String(format: "%02X", $1) }
+    }
+    
+    /// MD5加密（小写）
+    var md5Lowercase: String {
+        return md5.lowercased()
+    }
+    
+    /// 本地化字符串
+    var localized: String {
+        return NSLocalizedString(base, comment: "")
     }
 
     /// 将原始的url编码为合法的url
