@@ -35,12 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // 配置自定义网络状态检查逻辑
         MoyaConfig.networkStatusChecker = {
-            let isUse = ReachableManager.shared.stateUseless
+            let isUse = XPReachableManager.shared.stateUseless
             return !isUse
         }
 
         // 启动网络状态监听
-        ReachableManager.shared.checkNetworkState()
+        XPReachableManager.shared.checkNetworkState()
 
         // 设置窗口的根视图控制器
         window?.rootViewController = navController

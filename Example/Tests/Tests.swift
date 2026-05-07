@@ -28,12 +28,12 @@ class Tests: XCTestCase {
     // MARK: - BaseModel Tests
     
     func testBaseModelInitialization() {
-        let baseModel = BaseModel<String>()
-        XCTAssertNotNil(baseModel, "BaseModel should be initialized successfully")
+        let baseModel = XPBaseModel<String>()
+        XCTAssertNotNil(baseModel, "XPBaseModel should be initialized successfully")
     }
     
     func testBaseModelProperties() {
-        let baseModel = BaseModel<String>()
+        let baseModel = XPBaseModel<String>()
         baseModel.code = "200"
         baseModel.errCode = "0"
         baseModel.time = 1234567890
@@ -48,13 +48,13 @@ class Tests: XCTestCase {
     }
     
     func testCodeMsgModelInitialization() {
-        let codeMsgModel = CodeMsgModel()
-        XCTAssertNotNil(codeMsgModel, "CodeMsgModel should be initialized successfully")
+        let codeMsgModel = XPCodeMsgModel()
+        XCTAssertNotNil(codeMsgModel, "XPCodeMsgModel should be initialized successfully")
         XCTAssertEqual(codeMsgModel.code, -1, "Default code should be -1")
     }
     
     func testCodeMsgModelProperties() {
-        let codeMsgModel = CodeMsgModel()
+        let codeMsgModel = XPCodeMsgModel()
         codeMsgModel.code = 200
         codeMsgModel.msg = "Success"
         
@@ -63,8 +63,8 @@ class Tests: XCTestCase {
     }
     
     func testBaseListModelInitialization() {
-        let baseListModel = BaseListModel<String>()
-        XCTAssertNotNil(baseListModel, "BaseListModel should be initialized successfully")
+        let baseListModel = XPBaseListModel<String>()
+        XCTAssertNotNil(baseListModel, "XPBaseListModel should be initialized successfully")
         XCTAssertEqual(baseListModel.records, [], "Default records should be empty array")
         XCTAssertEqual(baseListModel.pages, 0, "Default pages should be 0")
         XCTAssertEqual(baseListModel.current, 0, "Default current should be 0")
@@ -73,7 +73,7 @@ class Tests: XCTestCase {
     }
     
     func testBaseListModelProperties() {
-        let baseListModel = BaseListModel<String>()
+        let baseListModel = XPBaseListModel<String>()
         baseListModel.records = ["Item1", "Item2", "Item3"]
         baseListModel.pages = 5
         baseListModel.current = 2
