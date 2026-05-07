@@ -57,19 +57,44 @@
   "subspecs": [
     {
       "name": "Extensions",
-      "source_files": "XPBase/Classes/Extensions"
+      "source_files": "XPBase/Classes/Extensions/**/*"
     },
     {
-      "name": "API",
-      "source_files": "XPBase/Classes/API/**/*"
+      "name": "Network",
+      "source_files": "XPBase/Classes/Network/**/*",
+      "dependencies": {
+        "XPBase/Extensions": [
+
+        ],
+        "XPBase/UIKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKit",
+      "source_files": "XPBase/Classes/UIKit/**/*",
+      "dependencies": {
+        "XPBase/Extensions": [
+
+        ]
+      }
     },
     {
       "name": "Log",
-      "source_files": "XPBase/Classes/Log"
+      "source_files": "XPBase/Classes/Log/**/*"
     },
     {
       "name": "Tool",
-      "source_files": "XPBase/Classes/Tool/**/*"
+      "source_files": "XPBase/Classes/Tool/**/*",
+      "dependencies": {
+        "XPBase/UIKit": [
+
+        ],
+        "XPBase/Network": [
+
+        ]
+      }
     }
   ]
 }

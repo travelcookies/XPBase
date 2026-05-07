@@ -7,10 +7,26 @@
 
 import UIKit
 
+/// UIColor 扩展（XP命名空间版本）
+/// 提供颜色相关的便捷方法，包括颜色转十六进制字符串、从十六进制字符串创建颜色等
+///
+/// 使用示例：
+/// ```swift
+/// // 将颜色转换为十六进制字符串
+/// let color = UIColor.red
+/// let hexString = color.xp.toHexString() // "#FF0000"
+/// 
+/// // 从十六进制字符串创建颜色（不透明）
+/// let redColor = UIColor.xp.hex("#FF0000")
+/// let blueColor = UIColor.xp.hex("0000FF")
+/// 
+/// // 从十六进制字符串创建颜色（带透明度）
+/// let transparentRed = UIColor.xp.hexa("#FF0000", a: 0.5)
+/// ```
 extension UIColor: XPCompatible {}
 
 public extension XP where Base == UIColor {
-    /// 将UIColor转换为16进制字符串。
+    /// 将UIColor转换为十六进制字符串
     func toHexString() -> String {
         let components = base.cgColor.components
         let r: CGFloat = components?[0] ?? 0.0

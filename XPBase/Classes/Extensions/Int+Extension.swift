@@ -8,11 +8,29 @@
 
 import UIKit
 
+/// Int 扩展（XP命名空间版本）
+/// 提供整数相关的便捷属性和方法，包括金额转换、时间格式化、颜色转换等
+///
+/// 使用示例：
+/// ```swift
+/// // 金额转换（分转元）
+/// let amountInFen = 1234 // 12.34元
+/// let amountStr = amountInFen.xp.fen2YuanDecimalFormatterValue() // "12.34"
+/// 
+/// // 时间格式化（秒转时分秒）
+/// let seconds = 3661 // 1小时1分钟1秒
+/// let timeStr = seconds.xp.timeToStringFormatterValue() // "1小时1分钟1秒"
+/// 
+/// // 整数转颜色
+/// let colorInt = 0xFF0000 // 红色
+/// let color = colorInt.xp.hex // UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+/// let transparentColor = colorInt.xp.hexa(0.5) // 带透明度的红色
+/// ```
 extension Int: XPCompatible {}
 
 public extension XP where Base == Int {
-    /// 金额 - Int 转 String
-    /// - Returns:  String?
+    /// 金额转换：分转元，返回格式化后的字符串
+    /// - Returns: 格式化后的金额字符串，如 "12.34"
     @discardableResult func fen2YuanDecimalFormatterValue() -> String? {
         let decimal = base % 100
         let nonDecimal = base / 100

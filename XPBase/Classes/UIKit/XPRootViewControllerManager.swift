@@ -1,17 +1,50 @@
 //
-//  RVCManager.swift
+//  XPRootViewControllerManager.swift
 //
 //  Created by 林小鹏 on 2022/10/18.
-//  Copyright © 2022 ningbokubin. All rights reserved.
 //
 
 import UIKit
 
-/// 视图控制器管理器，用于获取当前显示的视图控制器
-public final class RVCManager {
+/// 视图控制器管理器（XP命名空间版本）
+/// 提供获取当前显示视图控制器的便捷方法，支持多种视图层级结构
+///
+/// 使用示例：
+/// ```swift
+/// // 获取当前视图控制器
+/// if let currentVC = XPRootViewControllerManager.currentViewController() {
+///     print("当前视图控制器: \(String(describing: type(of: currentVC)))")
+/// }
+/// 
+/// // 使用计算属性获取当前视图控制器
+/// if let currentVC = XPRootViewControllerManager.currentVC {
+///     // 执行操作
+/// }
+/// 
+/// // 获取当前导航控制器
+/// if let navVC = XPRootViewControllerManager.currentNavigationController() {
+///     navVC.pushViewController(DetailViewController(), animated: true)
+/// }
+/// 
+/// // 获取当前标签页控制器
+/// if let tabVC = XPRootViewControllerManager.currentTabBarController() {
+///     tabVC.selectedIndex = 1
+/// }
+/// 
+/// // 安全获取当前视图控制器（带后备值）
+/// let vc = XPRootViewControllerManager.safeCurrentViewController()
+/// present(alertVC, animated: true)
+/// 
+/// // 获取应用主窗口
+/// if let window = XPRootViewControllerManager.keyWindow() {
+///     window.rootViewController = MainTabBarController()
+/// }
+/// ```
+public final class XPRootViewControllerManager {
 
     /// 获取当前显示的视图控制器
-    /// - Returns: 当前最顶层的视图控制器
+    /// 支持 UITabBarController、UINavigationController 和模态弹出的视图控制器
+    /// - Returns: 当前最顶层的视图控制器，如果无法获取则返回 nil
     public class func currentViewController() -> UIViewController? {
         guard let rootViewController = keyWindow()?.rootViewController else {
             return nil

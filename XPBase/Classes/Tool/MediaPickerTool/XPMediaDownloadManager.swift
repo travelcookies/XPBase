@@ -2,19 +2,21 @@ import UIKit
 import Alamofire
 import Photos
 
-// MARK: - 媒体类型枚举
-enum MediaType {
+/// 媒体类型枚举
+public enum XPMediaType {
     case image
     case video
 }
 
-// MARK: - 下载结果回调
-typealias DownloadProgressHandler = (Double) -> Void
-typealias DownloadCompletionHandler = (Result<URL, Error>) -> Void
-typealias SaveCompletionHandler = (Bool, Error?) -> Void
+/// 下载进度回调
+public typealias XPDownloadProgressHandler = (Double) -> Void
+/// 下载完成回调
+public typealias XPDownloadCompletionHandler = (Result<URL, Error>) -> Void
+/// 保存完成回调
+public typealias XPSaveCompletionHandler = (Bool, Error?) -> Void
 
-// MARK: - 自定义错误类型
-enum MediaDownloadError: Error, LocalizedError {
+/// 媒体下载错误类型
+public enum XPMediaDownloadError: Error, LocalizedError {
     case invalidURL
     case invalidImageData
     case videoNotCompatible
@@ -22,7 +24,7 @@ enum MediaDownloadError: Error, LocalizedError {
     case permissionDenied
     case saveFailed
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .invalidURL:
             return "无效的URL地址"
@@ -40,33 +42,71 @@ enum MediaDownloadError: Error, LocalizedError {
     }
 }
 
-// MARK: - 媒体下载工具类
-final class MediaDownloadManager: NSObject {
+/// 媒体下载工具类（XP命名空间版本）
+/// 提供媒体文件下载和保存到相册的功能，支持进度回调和权限处理
+///
+/// 使用示例：
+/// ```swift
+/// // 下载并保存图片到相册
+/// XPMediaDownloadManager.shared.downloadImage(
+///     urlString: "https://example.com/image.jpg",
+///     progressHandler: { progress in
+///         print("下载进度: \(progress * 100)%")
+///     }, completion: { success, error in
+///         if success {
+///             print("图片保存成功")
+///         } else {
+///             print("保存失败: \(error?.localizedDescription ?? "未知错误")")
+///         }
+///     }
+/// )
+///
+/// // 下载并保存视频到相册
+/// XPMediaDownloadManager.shared.downloadVideo(
+///     urlString: "https://example.com/video.mp4",
+///     progressHandler: { progress in
+///         print("下载进度: \(progress * 100)%")
+///     }, completion: { success, error in
+///         if success {
+///             print("视频保存成功")
+///         } else {
+///             print("保存失败: \(error?.localizedDescription ?? "未知错误")")
+///         }
+///     }
+/// )
+///
+/// // 取消下载
+/// XPMediaDownloadManager.shared.cancelDownload("https://example.com/image.jpg")
+///
+/// // 清理临时文件
+/// XPMediaDownloadManager.shared.cleanupTempFiles()
+/// ```
+public final class XPMediaDownloadManager: NSObject {
 
     // MARK: - 单例模式
-    static let shared = MediaDownloadManager()
+    public static let shared = XPMediaDownloadManager()
     private override init() {
         super.init()
     }
 
     // MARK: - 私有属性
     private var activeDownloads: [String: DownloadRequest] = [:]
-    private var completionHandlers: [String: SaveCompletionHandler] = [:]
+    private var completionHandlers: [String: XPSaveCompletionHandler] = [:]
     private let fileManager = FileManager.default
-    private let syncQueue = DispatchQueue(label: "com.youapp.MediaDownloadManager.syncQueue")
+    private let syncQueue = DispatchQueue(label: "com.yourapp.XPMediaDownloadManager.syncQueue")
 
     // MARK: - 公共方法
 
     /// 下载并保存媒体文件到相册
-    func downloadAndSaveMedia(
+    public func downloadAndSaveMedia(
         urlString: String,
-        mediaType: MediaType,
-        progressHandler: DownloadProgressHandler? = nil,
+        mediaType: XPMediaType,
+        progressHandler: XPDownloadProgressHandler? = nil,
         completion: @escaping (Bool, Error?) -> Void
     ) {
         // 检查URL有效性
         guard let url = URL(string: urlString) else {
-            completion(false, MediaDownloadError.invalidURL)
+            completion(false, XPMediaDownloadError.invalidURL)
             return
         }
 
@@ -75,7 +115,7 @@ final class MediaDownloadManager: NSObject {
             guard let self = self else { return }
 
             guard hasPermission else {
-                completion(false, MediaDownloadError.permissionDenied)
+                completion(false, XPMediaDownloadError.permissionDenied)
                 return
             }
 
@@ -99,10 +139,10 @@ final class MediaDownloadManager: NSObject {
     }
 
     /// 仅下载文件到临时目录
-    func downloadFile(
+    public func downloadFile(
         from url: URL,
-        progressHandler: DownloadProgressHandler? = nil,
-        completion: @escaping DownloadCompletionHandler
+        progressHandler: XPDownloadProgressHandler? = nil,
+        completion: @escaping XPDownloadCompletionHandler
     ) {
         let destination: DownloadRequest.Destination = { _, _ in
             let tempDirectory = self.fileManager.temporaryDirectory
@@ -125,7 +165,7 @@ final class MediaDownloadManager: NSObject {
                     if let localURL = localURL {
                         completion(.success(localURL))
                     } else {
-                        completion(.failure(MediaDownloadError.fileNotFound))
+                        completion(.failure(XPMediaDownloadError.fileNotFound))
                     }
                 case .failure(let error):
                     completion(.failure(error))
@@ -138,7 +178,7 @@ final class MediaDownloadManager: NSObject {
     }
 
     /// 取消下载任务
-    func cancelDownload(_ urlString: String) {
+    public func cancelDownload(_ urlString: String) {
         syncQueue.async {
             if let downloadRequest = self.activeDownloads[urlString] {
                 downloadRequest.cancel()
@@ -152,9 +192,9 @@ final class MediaDownloadManager: NSObject {
     /// 保存文件到系统相册
     private func saveToPhotoAlbum(
         fileURL: URL,
-        mediaType: MediaType,
+        mediaType: XPMediaType,
         originalURL: String,
-        completion: @escaping SaveCompletionHandler
+        completion: @escaping XPSaveCompletionHandler
     ) {
         // 使用UUID作为key来存储completion handler
         let handlerKey = UUID().uuidString
@@ -174,7 +214,7 @@ final class MediaDownloadManager: NSObject {
     /// 保存图片到相册
     private func saveImageToPhotoAlbum(fileURL: URL, handlerKey: String) {
         guard let image = UIImage(contentsOfFile: fileURL.path) else {
-            callCompletionHandler(for: handlerKey, success: false, error: MediaDownloadError.invalidImageData)
+            callCompletionHandler(for: handlerKey, success: false, error: XPMediaDownloadError.invalidImageData)
             return
         }
 
@@ -195,7 +235,7 @@ final class MediaDownloadManager: NSObject {
     /// 保存视频到相册
     private func saveVideoToPhotoAlbum(fileURL: URL, handlerKey: String) {
         guard UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(fileURL.path) else {
-            callCompletionHandler(for: handlerKey, success: false, error: MediaDownloadError.videoNotCompatible)
+            callCompletionHandler(for: handlerKey, success: false, error: XPMediaDownloadError.videoNotCompatible)
             return
         }
 
@@ -207,7 +247,7 @@ final class MediaDownloadManager: NSObject {
         )
     }
 
-    // MARK: - 保存完成回调 (iOS标准方式)
+    // MARK: - 保存完成回调（iOS标准方式）
 
     @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         handleSaveCompletion(error: error)
@@ -251,7 +291,7 @@ final class MediaDownloadManager: NSObject {
 
     // MARK: - 清理方法
 
-    func cleanup() {
+    public func cleanup() {
         syncQueue.async {
             // 取消所有下载
             for downloadRequest in self.activeDownloads.values {
@@ -266,7 +306,7 @@ final class MediaDownloadManager: NSObject {
         cleanupTempFiles()
     }
 
-    func cleanupTempFiles() {
+    public func cleanupTempFiles() {
         let tempDirectory = fileManager.temporaryDirectory
 
         do {
@@ -285,11 +325,11 @@ final class MediaDownloadManager: NSObject {
 }
 
 // MARK: - 使用示例扩展
-extension MediaDownloadManager {
+extension XPMediaDownloadManager {
 
-    func downloadImage(
+    public func downloadImage(
         urlString: String,
-        progressHandler: DownloadProgressHandler? = nil,
+        progressHandler: XPDownloadProgressHandler? = nil,
         completion: @escaping (Bool, Error?) -> Void
     ) {
         downloadAndSaveMedia(
@@ -300,9 +340,9 @@ extension MediaDownloadManager {
         )
     }
 
-    func downloadVideo(
+    public func downloadVideo(
         urlString: String,
-        progressHandler: DownloadProgressHandler? = nil,
+        progressHandler: XPDownloadProgressHandler? = nil,
         completion: @escaping (Bool, Error?) -> Void
     ) {
         downloadAndSaveMedia(
@@ -315,9 +355,9 @@ extension MediaDownloadManager {
 }
 
 // MARK: - 相册权限检查
-extension MediaDownloadManager {
+extension XPMediaDownloadManager {
 
-    func checkPhotoLibraryPermission(completion: @escaping (Bool) -> Void) {
+    public func checkPhotoLibraryPermission(completion: @escaping (Bool) -> Void) {
         if #available(iOS 14, *) {
             let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
             switch status {
@@ -357,7 +397,7 @@ extension MediaDownloadManager {
 }
 
 // MARK: - 替代方案：使用Photos框架（推荐）
-extension MediaDownloadManager {
+extension XPMediaDownloadManager {
 
     /// 使用Photos框架保存图片（更现代的方式）
     private func saveImageWithPhotosFramework(image: UIImage, completion: @escaping (Bool, Error?) -> Void) {
@@ -382,20 +422,20 @@ extension MediaDownloadManager {
     }
 
     /// 使用Photos框架的下载和保存方法（推荐）
-    func downloadAndSaveWithPhotosFramework(
+    public func downloadAndSaveWithPhotosFramework(
         urlString: String,
-        mediaType: MediaType,
-        progressHandler: DownloadProgressHandler? = nil,
+        mediaType: XPMediaType,
+        progressHandler: XPDownloadProgressHandler? = nil,
         completion: @escaping (Bool, Error?) -> Void
     ) {
         guard let url = URL(string: urlString) else {
-            completion(false, MediaDownloadError.invalidURL)
+            completion(false, XPMediaDownloadError.invalidURL)
             return
         }
 
         checkPhotoLibraryPermission { [weak self] hasPermission in
             guard let self = self, hasPermission else {
-                completion(false, MediaDownloadError.permissionDenied)
+                completion(false, XPMediaDownloadError.permissionDenied)
                 return
             }
 
@@ -407,7 +447,7 @@ extension MediaDownloadManager {
                         if let image = UIImage(contentsOfFile: localURL.path) {
                             self.saveImageWithPhotosFramework(image: image, completion: completion)
                         } else {
-                            completion(false, MediaDownloadError.invalidImageData)
+                            completion(false, XPMediaDownloadError.invalidImageData)
                         }
                     case .video:
                         self.saveVideoWithPhotosFramework(videoURL: localURL, completion: completion)

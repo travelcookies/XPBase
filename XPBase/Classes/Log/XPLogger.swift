@@ -9,11 +9,17 @@ import Foundation
 import os.log
 
 /// 日志级别枚举
+/// 用于区分不同重要程度的日志，便于过滤和查看
 public enum LogLevel: String, CaseIterable {
+    /// 调试级别，用于详细的调试信息
     case debug
+    /// 信息级别，用于一般信息输出
     case info
+    /// 默认级别，用于普通日志
     case `default`
+    /// 错误级别，用于错误信息
     case error
+    /// 严重级别，用于严重错误
     case fault
 
     /// 对应的图标，用于在print输出时增强可读性
@@ -29,24 +35,46 @@ public enum LogLevel: String, CaseIterable {
 }
 
 /// 统一日志封装，兼容 iOS 9 及以上所有版本
+/// 根据系统版本自动选择合适的日志输出方式：iOS 10+ 使用 OSLog，iOS 9 使用 print
+///
+/// 使用示例：
+/// ```swift
+/// // 创建日志器实例（推荐按模块分类）
+/// let networkLogger = XPLogger(category: "Network")
+/// let uiLogger = XPLogger(category: "UI")
+/// let dataLogger = XPLogger(category: "Data")
+///
+/// // 输出不同级别的日志
+/// networkLogger.log("请求开始", level: .info)
+/// networkLogger.log("请求参数: \(params)", level: .debug)
+/// uiLogger.log("视图加载完成", level: .info)
+/// dataLogger.log("数据解析失败", level: .error)
+///
+/// // 使用默认级别
+/// networkLogger.log("普通日志消息")
+///
+/// // 自定义子系统
+/// let customLogger = XPLogger(subsystem: "com.example.app.feature", category: "Feature")
+/// customLogger.log("功能模块日志")
+/// ```
 public struct XPLogger {
     private let subsystem: String
     private let category: String
     private let useOSLog: Bool
 
+    /// 默认子系统标识，使用应用的 Bundle ID
     public static var defaultSubsystem: String = {
         Bundle.main.bundleIdentifier ?? "com.yourapp.unknown"
     }()
 
     /// 初始化日志器
     /// - Parameters:
-    ///   - subsystem: 子系统标识，通常使用Bundle ID
-    ///   - category: 日志分类，如“Network”、“UI”
+    ///   - subsystem: 子系统标识，通常使用 Bundle ID，默认使用应用的 Bundle ID
+    ///   - category: 日志分类，用于区分不同模块，如 "Network"、"UI"、"Database"
     public init(subsystem: String = XPLogger.defaultSubsystem, category: String) {
         self.subsystem = subsystem
         self.category = category
 
-        // 核心判断：iOS 10.0 及以上才使用 OSLog
         if #available(iOS 10.0, *) {
             self.useOSLog = true
         } else {

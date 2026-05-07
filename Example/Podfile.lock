@@ -19,19 +19,11 @@ PODS:
     - SnapKit
     - Toast-Swift
     - URLNavigator
-    - XPBase/API (= 0.1.1)
     - XPBase/Extensions (= 0.1.1)
     - XPBase/Log (= 0.1.1)
+    - XPBase/Network (= 0.1.1)
     - XPBase/Tool (= 0.1.1)
-  - XPBase/API (0.1.1):
-    - Alamofire
-    - GKNavigationBar/NavigationBar
-    - HandyJSON
-    - Moya
-    - ReachabilitySwift
-    - SnapKit
-    - Toast-Swift
-    - URLNavigator
+    - XPBase/UIKit (= 0.1.1)
   - XPBase/Extensions (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
@@ -50,6 +42,17 @@ PODS:
     - SnapKit
     - Toast-Swift
     - URLNavigator
+  - XPBase/Network (0.1.1):
+    - Alamofire
+    - GKNavigationBar/NavigationBar
+    - HandyJSON
+    - Moya
+    - ReachabilitySwift
+    - SnapKit
+    - Toast-Swift
+    - URLNavigator
+    - XPBase/Extensions
+    - XPBase/UIKit
   - XPBase/Tool (0.1.1):
     - Alamofire
     - GKNavigationBar/NavigationBar
@@ -59,6 +62,18 @@ PODS:
     - SnapKit
     - Toast-Swift
     - URLNavigator
+    - XPBase/Network
+    - XPBase/UIKit
+  - XPBase/UIKit (0.1.1):
+    - Alamofire
+    - GKNavigationBar/NavigationBar
+    - HandyJSON
+    - Moya
+    - ReachabilitySwift
+    - SnapKit
+    - Toast-Swift
+    - URLNavigator
+    - XPBase/Extensions
 
 DEPENDENCIES:
   - GKNavigationBar/NavigationBar (= 1.9.7)
@@ -90,7 +105,7 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   URLNavigator: e9c0426ba6e6ac57f34d018bbf3df840797f984d
-  XPBase: 5cf8feab163f2622f7bdf5d648309ef8972138b9
+  XPBase: aafd697f171e341a497c9e470c4d08bc6ef60756
 
 PODFILE CHECKSUM: d7adbfad1029ed470ce90ee0c4b818643facfec8
 

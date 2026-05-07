@@ -9,10 +9,37 @@
 import CommonCrypto
 import Foundation
 import UIKit
+
+/// String 扩展（XP命名空间版本）
+/// 提供字符串相关的便捷属性和方法，包括加密、URL编码、JSON转换、字符串尺寸计算等
+///
+/// 使用示例：
+/// ```swift
+/// let str = "Hello, World!"
+/// 
+/// // MD5加密
+/// let md5Str = str.xp.md5
+/// 
+/// // URL编码
+/// let encodedUrl = str.xp.urlEncoded()
+/// let decodedUrl = encodedUrl.xp.urlDecoded()
+/// 
+/// // JSON字符串转字典
+/// let jsonStr = "{\"name\": \"John\", \"age\": 30}"
+/// let dict = jsonStr.xp.toDictionary()
+/// 
+/// // 字符串截取（下标访问）
+/// let subStr = str.xp[0..<5] // "Hello"
+/// 
+/// // 计算字符串尺寸
+/// let width = str.xp.widthForComment(fontSize: 16)
+/// let height = str.xp.heightForComment(fontSize: 16, width: 200)
+/// let limitedHeight = str.xp.heightForComment(fontSize: 16, width: 200, maxHeight: 100)
+/// ```
 extension String: XPCompatible {}
 
 public extension XP where Base == String {
-    /// MD5
+    /// MD5加密
     var md5: String {
         let ccharArray = base.cString(using: String.Encoding.utf8)
         var uint8Array = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))

@@ -9,8 +9,31 @@
 import Foundation
 import UIKit
 
-// MARK: - 获取日期各种值
-
+/// Date 扩展（XP命名空间版本）
+/// 提供日期相关的便捷属性和方法，包括获取日期组件、比较日期、生成时间戳等
+///
+/// 使用示例：
+/// ```swift
+/// let date = Date()
+/// 
+/// // 获取日期组件
+/// let year = date.xp.year
+/// let month = date.xp.month
+/// let day = date.xp.day
+/// let weekday = date.xp.weakDay // 星期几（1-7）
+/// 
+/// // 获取月份信息
+/// let daysInMonth = date.xp.currentMonthNumber // 当月天数
+/// let firstWeekday = date.xp.firstWeekDay // 当月第一天是星期几
+/// 
+/// // 日期比较
+/// let isToday = date.xp.isToday
+/// let isCurrentMonth = date.xp.isCurrentMonth
+/// 
+/// // 获取时间戳
+/// let timestamp = date.xp.timeStamp // 10位秒级时间戳
+/// let milliTimestamp = date.xp.milliStamp // 13位毫秒级时间戳
+/// ```
 extension Date: XPCompatible {}
 
 public extension XP where Base == Date {

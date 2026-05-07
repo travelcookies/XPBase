@@ -39,25 +39,32 @@ TODO: Add long description of the pod here.
 
   # 拓展
   s.subspec 'Extensions' do |ss|
-    ss.source_files = 'XPBase/Classes/Extensions'
+    ss.source_files = 'XPBase/Classes/Extensions/**/*'
   end
 
   # 网络请求
-  s.subspec 'API' do |ss|
-    ss.source_files = 'XPBase/Classes/API'
-    ss.source_files = 'XPBase/Classes/API/**/*'
+  s.subspec 'Network' do |ss|
+    ss.source_files = 'XPBase/Classes/Network/**/*'
+    ss.dependency 'XPBase/Extensions'
+    ss.dependency 'XPBase/UIKit'
+  end
+
+  # UIKit工具类
+  s.subspec 'UIKit' do |ss|
+    ss.source_files = 'XPBase/Classes/UIKit/**/*'
+    ss.dependency 'XPBase/Extensions'
   end
 
   # 提示
   s.subspec 'Log' do |ss|
-    ss.source_files = 'XPBase/Classes/Log'
+    ss.source_files = 'XPBase/Classes/Log/**/*'
   end
 
   # 工具
   s.subspec 'Tool' do |ss|
-    ss.source_files = 'XPBase/Classes/Tool'
     ss.source_files = 'XPBase/Classes/Tool/**/*'
-
+    ss.dependency 'XPBase/UIKit'
+    ss.dependency 'XPBase/Network'
   end
 
 

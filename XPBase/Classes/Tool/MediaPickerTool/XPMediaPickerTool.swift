@@ -1,41 +1,86 @@
 import UIKit
 import MediaPlayer
 
-/// MPMediaPickerController 工具类封装
-/// 处理 iOS 13+ 的媒体库权限请求
-class MediaPickerTool: NSObject {
+/// MPMediaPickerController 工具类封装（XP 命名空间版本）
+/// 简化媒体库权限请求和媒体选择流程，自动处理权限状态
+///
+/// 使用示例：
+/// ```swift
+/// // 创建媒体选择工具实例
+/// let mediaPickerTool = XPMediaPickerTool()
+///
+/// // 展示媒体选择器（选择单个音乐）
+/// mediaPickerTool.presentMediaPicker(from: self,
+///                                    mediaTypes: .music,
+///                                    allowsPickingMultipleItems: false,
+///                                    prompt: "选择背景音乐") { mediaItemCollection in
+///     // 处理选中的媒体项
+///     if let item = mediaItemCollection.items.first {
+///         let title = item.title ?? "未知标题"
+///         let artist = item.artist ?? "未知艺术家"
+///         print("选中音乐: \(title) - \(artist)")
+///     }
+/// } didCancel: {
+///     print("用户取消选择")
+/// } accessDenied: { status in
+///     print("媒体库访问被拒绝: \(status.rawValue)")
+/// }
+///
+/// // 选择多个媒体项
+/// mediaPickerTool.presentMediaPicker(from: self,
+///                                    allowsPickingMultipleItems: true) { collection in
+///     print("选中 \(collection.count) 个媒体项")
+/// } didCancel: {
+///     // 取消处理
+/// }
+///
+/// // 手动关闭选择器
+/// mediaPickerTool.dismissMediaPicker(animated: true)
+/// ```
+public class XPMediaPickerTool: NSObject {
 
     // MARK: - 类型定义
-    typealias MediaPickerDidPickMediaItemsHandler = (_ mediaItemCollection: MPMediaItemCollection) -> Void
-    typealias MediaPickerDidCancelHandler = () -> Void
-    typealias MediaPickerAccessDeniedHandler = (_ status: MPMediaLibraryAuthorizationStatus) -> Void
+    /// 选择媒体项成功的回调
+    public typealias MediaPickerDidPickMediaItemsHandler = (_ mediaItemCollection: MPMediaItemCollection) -> Void
+    /// 用户取消选择的回调
+    public typealias MediaPickerDidCancelHandler = () -> Void
+    /// 媒体库访问被拒绝或受限的回调
+    public typealias MediaPickerAccessDeniedHandler = (_ status: MPMediaLibraryAuthorizationStatus) -> Void
 
     // MARK: - 属性
+    /// 媒体选择器实例
     private var mediaPicker: MPMediaPickerController?
+    /// 选择成功回调
     private var didPickMediaItemsHandler: MediaPickerDidPickMediaItemsHandler?
+    /// 取消选择回调
     private var didCancelHandler: MediaPickerDidCancelHandler?
+    /// 访问被拒绝回调
     private var accessDeniedHandler: MediaPickerAccessDeniedHandler?
+    /// 用于呈现选择器的视图控制器（弱引用避免循环引用）
     private weak var presentingViewController: UIViewController?
 
     // MARK: - 公共方法
 
-    /// 检查权限并展示媒体选择器 (主入口方法)
+    /// 检查权限并展示媒体选择器（主入口方法）
+    /// 自动处理权限状态：已授权直接展示，未授权先请求权限，已拒绝则提示用户
+    ///
     /// - Parameters:
     ///   - viewController: 用于呈现选择器的视图控制器
     ///   - mediaTypes: 要显示的媒体类型，默认为音乐
     ///   - allowsPickingMultipleItems: 是否允许选择多个媒体项，默认为 false
-    ///   - prompt: 选择器顶部显示的提示文字，可选
+    ///   - prompt: 选择器顶部显示的提示文字，默认为 "选择音乐"
     ///   - didPickMediaItems: 成功选择媒体项的回调
     ///   - didCancel: 用户取消选择的回调
-    ///   - accessDenied: 媒体库访问被拒绝或受限的回调（可选，提供更精细的状态）
-    func presentMediaPicker(from viewController: UIViewController,
-                           mediaTypes: MPMediaType = .music,
-                           allowsPickingMultipleItems: Bool = false,
-                           prompt: String? = "选择音乐",
-                           didPickMediaItems: MediaPickerDidPickMediaItemsHandler?,
-                           didCancel: MediaPickerDidCancelHandler?,
-                           accessDenied: MediaPickerAccessDeniedHandler? = nil) {
-
+    ///   - accessDenied: 媒体库访问被拒绝或受限的回调（可选）
+    public func presentMediaPicker(
+        from viewController: UIViewController,
+        mediaTypes: MPMediaType = .music,
+        allowsPickingMultipleItems: Bool = false,
+        prompt: String? = "选择音乐",
+        didPickMediaItems: MediaPickerDidPickMediaItemsHandler?,
+        didCancel: MediaPickerDidCancelHandler?,
+        accessDenied: MediaPickerAccessDeniedHandler? = nil
+    ) {
         self.presentingViewController = viewController
         self.didPickMediaItemsHandler = didPickMediaItems
         self.didCancelHandler = didCancel
@@ -47,14 +92,18 @@ class MediaPickerTool: NSObject {
         switch currentStatus {
         case .authorized:
             // 已授权，直接呈现选择器
-            self.presentMediaPickerController(mediaTypes: mediaTypes,
-                                            allowsPickingMultipleItems: allowsPickingMultipleItems,
-                                            prompt: prompt)
+            self.presentMediaPickerController(
+                mediaTypes: mediaTypes,
+                allowsPickingMultipleItems: allowsPickingMultipleItems,
+                prompt: prompt
+            )
         case .notDetermined:
             // 尚未请求，先请求权限
-            self.requestMediaLibraryAuthorization(mediaTypes: mediaTypes,
-                                                allowsPickingMultipleItems: allowsPickingMultipleItems,
-                                                prompt: prompt)
+            self.requestMediaLibraryAuthorization(
+                mediaTypes: mediaTypes,
+                allowsPickingMultipleItems: allowsPickingMultipleItems,
+                prompt: prompt
+            )
         case .denied, .restricted:
             // 已拒绝或受限，调用访问拒绝回调
             DispatchQueue.main.async {
@@ -71,7 +120,7 @@ class MediaPickerTool: NSObject {
     }
 
     /// 以模态方式 dismiss 媒体选择器
-    func dismissMediaPicker(animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func dismissMediaPicker(animated: Bool = true, completion: (() -> Void)? = nil) {
         mediaPicker?.dismiss(animated: animated, completion: completion)
         mediaPicker = nil // 释放引用
     }
@@ -79,9 +128,11 @@ class MediaPickerTool: NSObject {
     // MARK: - 私有方法
 
     /// 请求媒体库授权
-    private func requestMediaLibraryAuthorization(mediaTypes: MPMediaType,
-                                               allowsPickingMultipleItems: Bool,
-                                               prompt: String?) {
+    private func requestMediaLibraryAuthorization(
+        mediaTypes: MPMediaType,
+        allowsPickingMultipleItems: Bool,
+        prompt: String?
+    ) {
         MPMediaLibrary.requestAuthorization { [weak self] status in
             guard let self = self else { return }
 
@@ -89,9 +140,11 @@ class MediaPickerTool: NSObject {
                 switch status {
                 case .authorized:
                     // 用户授权，呈现选择器
-                    self.presentMediaPickerController(mediaTypes: mediaTypes,
-                                                    allowsPickingMultipleItems: allowsPickingMultipleItems,
-                                                    prompt: prompt)
+                    self.presentMediaPickerController(
+                        mediaTypes: mediaTypes,
+                        allowsPickingMultipleItems: allowsPickingMultipleItems,
+                        prompt: prompt
+                    )
                 case .denied, .restricted, .notDetermined:
                     // 用户拒绝、受限或仍未决定，调用访问拒绝回调
                     self.accessDeniedHandler?(status)
@@ -103,9 +156,11 @@ class MediaPickerTool: NSObject {
     }
 
     /// 创建并呈现 MPMediaPickerController
-    private func presentMediaPickerController(mediaTypes: MPMediaType,
-                                           allowsPickingMultipleItems: Bool,
-                                           prompt: String?) {
+    private func presentMediaPickerController(
+        mediaTypes: MPMediaType,
+        allowsPickingMultipleItems: Bool,
+        prompt: String?
+    ) {
         // 确保 presentingViewController 仍然有效
         guard let presentingVC = self.presentingViewController else {
             print("Error: Presenting view controller is nil.")
@@ -133,7 +188,7 @@ class MediaPickerTool: NSObject {
         switch status {
         case .denied:
             alertTitle = "媒体库访问已关闭"
-            alertMessage = "您需要开启媒体库访问权限才能选择音乐。请前往【设置】->【隐私与安全性】->【媒体与Apple Music】中，允许此应用访问您的媒体库。"
+            alertMessage = "您需要开启媒体库访问权限才能选择音乐。请前往【设置】→【隐私与安全性】→【媒体与Apple Music】中，允许此应用访问您的媒体库。"
         case .restricted:
             alertTitle = "媒体库访问受限"
             alertMessage = "您的设备限制此应用访问媒体库。这可能是由于家长控制或设备策略所致。"
@@ -158,16 +213,16 @@ class MediaPickerTool: NSObject {
 }
 
 // MARK: - MPMediaPickerControllerDelegate
-extension MediaPickerTool: MPMediaPickerControllerDelegate {
+extension XPMediaPickerTool: MPMediaPickerControllerDelegate {
 
-    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+    public func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         // 调用成功的回调，将选中的媒体集合传递出去
         didPickMediaItemsHandler?(mediaItemCollection)
         // 自动 dismiss 选择器
         dismissMediaPicker(animated: true)
     }
 
-    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+    public func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
         // 调用取消的回调
         didCancelHandler?()
         // 自动 dismiss 选择器
