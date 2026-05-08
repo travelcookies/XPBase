@@ -95,7 +95,7 @@ public class XPCountDownButton: UIButton {
         clickedBlock?(btn)
     }
     
-    @objc private func updateTime(_ btn: UIButton) {
+    @objc private func updateTime(_ timer: Timer) {
         remainingSeconds -= 1
     }
     

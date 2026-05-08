@@ -51,7 +51,7 @@ public class XPCounter: NSObject {
         startTime = CACurrentMediaTime()
         
         displayLink = CADisplayLink(target: self, selector: #selector(update))
-        displayLink?.add(to: .main, forMode: .common)
+        displayLink?.add(to: .main, forMode: .commonModes)
     }
     
     @objc private func update() {

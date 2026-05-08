@@ -4,7 +4,7 @@ extension UIImage: XPCompatible {}
 
 public extension XP where Base == UIImage {
     func compressed(toByte maxLength: Int) -> UIImage {
-        guard var data = base.jpegData(compressionQuality: 1) else { return base }
+        guard var data = UIImageJPEGRepresentation(base, 1) else { return base }
         
         if data.count < maxLength { return base }
         
@@ -14,7 +14,7 @@ public extension XP where Base == UIImage {
         
         for _ in 0..<6 {
             compression = (max + min) / 2
-            data = base.jpegData(compressionQuality: compression)!
+            data = UIImageJPEGRepresentation(base, compression)!
             
             if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {
                 min = compression

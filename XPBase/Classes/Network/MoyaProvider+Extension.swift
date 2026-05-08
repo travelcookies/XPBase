@@ -195,10 +195,10 @@ public extension MoyaProvider {
             // 处理 XPCodeMsgModel 特殊情况
             let clsString = String(describing: type(of: jsonData))
             if clsString.contains(MoyaConfig.codeMsgModelIdentifier) && jsonData.data == nil {
-                let m = XPCodeMsgModel()
-                m.code = Int(jsonData.code ?? "0") ?? -1
-                m.msg = jsonData.msg
-                jsonData.data = (m as! T)
+                let msgModel = XPCodeMsgModel()
+                msgModel.code = Int(jsonData.code ?? "0") ?? -1
+                msgModel.msg = jsonData.msg
+                jsonData.data = msgModel as? T
             }
             completion?(jsonData.data)
         } else if jsonData.code == MoyaConfig.unauthorizedCode {

@@ -58,7 +58,9 @@ public class XPReachableManager {
                     return
                 }
                 reachableManagerView = XPReachableManagerView.initView()
-                UIApplication.shared.keyWindow?.addSubview(reachableManagerView!)
+                if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) ?? UIApplication.shared.delegate?.window ?? nil {
+                    window.addSubview(reachableManagerView!)
+                }
                 reachableManagerView!.snp.makeConstraints { make in
                     make.top.equalTo(-100)
                     make.left.right.equalTo(0)

@@ -7,34 +7,34 @@ import UIKit
 /// 使用示例：
 /// ```swift
 /// // 获取设备名称
-/// let deviceName = XPDevice.share.name // 如 "iPhone 13"
+/// let deviceName = XPDevice.shared.name // 如 "iPhone 13"
 /// 
 /// // 获取设备显示名称
-/// let displayName = XPDevice.share.deviceName // 如 "张三的 iPhone"
+/// let displayName = XPDevice.shared.deviceName // 如 "张三的 iPhone"
 /// 
 /// // 获取系统名称
-/// let systemName = XPDevice.share.sysName // "iOS"
+/// let systemName = XPDevice.shared.sysName // "iOS"
 /// 
 /// // 获取系统版本
-/// let systemVersion = XPDevice.share.sysVersion // "15.0"
+/// let systemVersion = XPDevice.shared.sysVersion // "15.0"
 /// 
 /// // 获取设备UUID
-/// let uuid = XPDevice.share.deviceUUID
+/// let uuid = XPDevice.shared.deviceUUID
 /// 
 /// // 获取设备型号
-/// let model = XPDevice.share.deviceModel // "iPhone"
+/// let model = XPDevice.shared.deviceModel // "iPhone"
 /// 
 /// // 获取应用版本号
-/// let appVersion = XPDevice.share.appVersion // "1.0.0"
+/// let appVersion = XPDevice.shared.appVersion // "1.0.0"
 /// 
 /// // 获取应用构建版本
-/// let buildVersion = XPDevice.share.appBuildVersion // "1"
+/// let buildVersion = XPDevice.shared.appBuildVersion // "1"
 /// 
 /// // 获取应用名称
-/// let appName = XPDevice.share.appName // "MyApp"
+/// let appName = XPDevice.shared.appName // "MyApp"
 /// ```
 public struct XPDevice {
-    public static let share = XPDevice()
+    public static let shared = XPDevice()
     
     public let name: String = {
         var systemInfo = utsname()

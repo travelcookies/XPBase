@@ -48,8 +48,8 @@ public class XPCacheManager {
     public func addUpdateCache(key: String, value: Any) {
         queue.sync {
             let filePath = (cacheDirectory as NSString).appendingPathComponent(key)
-            let data = NSKeyedArchiver.archivedData(withRootObject: value)
             do {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
                 try data.write(to: URL(fileURLWithPath: filePath))
             } catch {
                 print("Error saving cache: \(error)")
@@ -66,7 +66,7 @@ public class XPCacheManager {
             
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-                return NSKeyedUnarchiver.unarchiveObject(with: data)
+                return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
             } catch {
                 print("Error loading cache: \(error)")
                 return nil
