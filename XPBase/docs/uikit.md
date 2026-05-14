@@ -47,31 +47,31 @@ let tabBarHeight = XPScreen.tabBarHeight
 **使用示例**：
 ```swift
 // 获取设备名称
-let deviceName = XPDevice.share.name // 如 "iPhone 13"
+let deviceName = XPDevice.shared.name // 如 "iPhone 13"
 
 // 获取设备显示名称
-let displayName = XPDevice.share.deviceName // 如 "张三的 iPhone"
+let displayName = XPDevice.shared.deviceName // 如 "张三的 iPhone"
 
 // 获取系统名称
-let systemName = XPDevice.share.sysName // "iOS"
+let systemName = XPDevice.shared.sysName // "iOS"
 
 // 获取系统版本
-let systemVersion = XPDevice.share.sysVersion // "15.0"
+let systemVersion = XPDevice.shared.sysVersion // "15.0"
 
 // 获取设备UUID
-let uuid = XPDevice.share.deviceUUID
+let uuid = XPDevice.shared.deviceUUID
 
 // 获取设备型号
-let model = XPDevice.share.deviceModel // "iPhone"
+let model = XPDevice.shared.deviceModel // "iPhone"
 
 // 获取应用版本号
-let appVersion = XPDevice.share.appVersion // "1.0.0"
+let appVersion = XPDevice.shared.appVersion // "1.0.0"
 
 // 获取应用构建版本
-let buildVersion = XPDevice.share.appBuildVersion // "1"
+let buildVersion = XPDevice.shared.appBuildVersion // "1"
 
 // 获取应用名称
-let appName = XPDevice.share.appName // "MyApp"
+let appName = XPDevice.shared.appName // "MyApp"
 ```
 
 ---
@@ -256,3 +256,69 @@ gradientView.setGradient(startColor: .blue, endColor: .purple,
                         startPoint: CGPoint(x: 1, y: 0), 
                         endPoint: CGPoint(x: 0, y: 1))
 ```
+
+---
+
+## XPRootViewControllerManager
+
+**功能说明**：视图控制器管理器，提供获取当前显示视图控制器的便捷方法，支持多种视图层级结构。
+
+**使用示例**：
+```swift
+// 获取当前视图控制器
+if let currentVC = XPRootViewControllerManager.currentViewController() {
+    print("当前视图控制器: \(String(describing: type(of: currentVC)))")
+}
+
+// 使用计算属性获取当前视图控制器
+if let currentVC = XPRootViewControllerManager.currentVC {
+    // 执行操作
+}
+
+// 获取当前导航控制器
+if let navVC = XPRootViewControllerManager.currentNavigationController() {
+    navVC.pushViewController(DetailViewController(), animated: true)
+}
+
+// 获取当前标签页控制器
+if let tabVC = XPRootViewControllerManager.currentTabBarController() {
+    tabVC.selectedIndex = 1
+}
+
+// 安全获取当前视图控制器（带后备值）
+let vc = XPRootViewControllerManager.safeCurrentViewController()
+present(alertVC, animated: true)
+
+// 获取应用主窗口
+if let window = XPRootViewControllerManager.keyWindow() {
+    window.rootViewController = MainTabBarController()
+}
+```
+
+---
+
+## XPDeviceModelConfiguration
+
+**功能说明**：设备型号配置，存储设备标识符与设备名称的映射关系，便于维护和扩展。
+
+**使用示例**：
+```swift
+// 获取设备名称
+let deviceName = XPDeviceModelConfiguration.deviceNames["iPhone16,1"] ?? "Unknown"
+print(deviceName) // "iPhone 15 Pro"
+
+// 获取安全区域配置
+let insets = XPDeviceModelConfiguration.safeAreaInsetsDict["iPhone15,4"]?[.portrait]
+
+// 判断是否灵动岛设备
+let isDynamicIsland = XPDeviceModelConfiguration.dynamicIslandDeviceModels.contains(deviceModel)
+```
+
+**主要配置项**：
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| `deviceNames` | `[String: String]` | 设备标识符到设备名称的映射 |
+| `dynamicIslandDeviceModels` | `[String]` | 灵动岛设备型号列表 |
+| `safeAreaInsetsDict` | `[String: [UIInterfaceOrientation: UIEdgeInsets]]` | 安全区域内边距配置 |
+| `screenXXInchModels` | `[String]` | 各尺寸屏幕设备型号列表 |

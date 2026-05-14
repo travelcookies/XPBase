@@ -17,6 +17,8 @@
   - XPDashedBorderView
   - XPGradientButton
   - XPGradientView
+  - XPRootViewControllerManager
+  - XPDeviceModelConfiguration
 - [Tool 模块](tool.md)
   - XPTimer
   - XPDebounce
@@ -32,12 +34,21 @@
   - XPFileManager
   - XPCacheManager
   - XPKeyChain
+  - XPMediaDownloadManager
 - [Extensions 模块](extensions.md)
   - Array+Extension
   - String+Extension
   - Date+Extension
   - UIColor+Extension
   - UIView+Extension
+  - Codable+Extension
+  - Int+Extension
+  - UIAlertController+Extension
+  - UIButton+Extension
+  - UIImage+Extension
+  - UITableView+Extension
+  - UITextField+Extension
+  - XPCompatible
 - [Network 模块](network.md)
   - XPNetworkLoggerPlugin
   - XPBaseModel
@@ -101,8 +112,9 @@ import XPBase
 - **v1.0.0** - 初始版本，包含基础工具类
 - **v1.1.0** - 添加网络模块和日志模块
 - **v1.2.0** - 添加 UIKit 组件和动画工具
+- **v1.3.0** - 完善文档，添加高级用法示例
 
 ---
 
-**文档版本**: 1.2.0  
-**最后更新**: 2026-05-07
+**文档版本**: 1.3.0  
+**最后更新**: 2026-05-14

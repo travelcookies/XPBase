@@ -479,3 +479,68 @@ let success = XPKeyChain.saveString(service: "token", value: "abc123")
 // 快捷方法读取字符串
 let token = XPKeyChain.loadString(service: "token")
 ```
+
+---
+
+## XPMediaDownloadManager
+
+**功能说明**：媒体下载工具类，提供媒体文件下载和保存到相册的功能，支持进度回调和权限处理。
+
+**使用示例**：
+```swift
+// 下载并保存图片到相册
+XPMediaDownloadManager.shared.downloadImage(
+    urlString: "https://example.com/image.jpg",
+    progressHandler: { progress in
+        print("下载进度: \(progress * 100)%")
+    }, completion: { success, error in
+        if success {
+            print("图片保存成功")
+        } else {
+            print("保存失败: \(error?.localizedDescription ?? "未知错误")")
+        }
+    }
+)
+
+// 下载并保存视频到相册
+XPMediaDownloadManager.shared.downloadVideo(
+    urlString: "https://example.com/video.mp4",
+    progressHandler: { progress in
+        print("下载进度: \(progress * 100)%")
+    }, completion: { success, error in
+        if success {
+            print("视频保存成功")
+        } else {
+            print("保存失败: \(error?.localizedDescription ?? "未知错误")")
+        }
+    }
+)
+
+// 取消下载
+XPMediaDownloadManager.shared.cancelDownload("https://example.com/image.jpg")
+
+// 清理临时文件
+XPMediaDownloadManager.shared.cleanupTempFiles()
+```
+
+**主要方法**：
+
+| 方法 | 说明 |
+|------|------|
+| `downloadImage(urlString:progressHandler:completion:)` | 下载并保存图片到相册 |
+| `downloadVideo(urlString:progressHandler:completion:)` | 下载并保存视频到相册 |
+| `downloadAndSaveMedia(urlString:mediaType:progressHandler:completion:)` | 通用下载方法，支持指定媒体类型 |
+| `cancelDownload(_:)` | 取消指定URL的下载任务 |
+| `cleanup()` | 清理所有下载任务和临时文件 |
+| `cleanupTempFiles()` | 仅清理临时文件 |
+
+**错误类型**：
+
+| 错误 | 说明 |
+|------|------|
+| `.invalidURL` | 无效的URL地址 |
+| `.invalidImageData` | 图片数据格式错误 |
+| `.videoNotCompatible` | 视频格式不兼容 |
+| `.fileNotFound` | 文件未找到 |
+| `.permissionDenied` | 相册权限被拒绝 |
+| `.saveFailed` | 保存到相册失败 |
