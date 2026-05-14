@@ -2,7 +2,7 @@
 
 ## Array+Extension
 
-**功能说明**：数组扩展，提供数组去重和安全访问等便捷方法。
+**功能说明**：数组扩展，提供数组去重和安全访问等便捷方法，使用 `.xp` 命名空间调用。
 
 **使用示例**：
 ```swift
@@ -12,12 +12,35 @@ let uniqueArray = array.xp.deduplicated() // [1, 2, 3]
 
 // 使用闭包去重（自定义比较规则）
 let users = [User(id: 1, name: "A"), User(id: 2, name: "B"), User(id: 1, name: "A")]
-let uniqueUsers = users.deduplicate { $0.id } // 根据id去重
+let uniqueUsers = users.xp.deduplicate { $0.id } // 根据id去重
 
 // 安全访问数组元素（避免越界）
-let value = array.safeGet(5) // nil（数组越界）
-let value = array.safeGet(0) // Optional(1)
+let value = array.xp.safeGet(5) // nil（数组越界）
+let value = array.xp.safeGet(0) // Optional(1)
+
+// 安全获取第一个/最后一个元素
+let first = array.xp.firstOrNil
+let last = array.xp.lastOrNil
+
+// 检查数组是否为空
+let isEmpty = array.xp.isEmptyOrNil
+
+// 安全检查索引是否有效
+let isValid = array.xp.isValidIndex(3)
 ```
+
+**主要方法**：
+
+| 方法 | 说明 |
+|------|------|
+| `array.xp.deduplicated()` | 去重（元素需遵循 Equatable） |
+| `array.xp.deduplicate(filter:)` | 根据闭包规则去重 |
+| `array.xp.safeGet(index:)` | 安全访问数组元素 |
+| `array.xp.firstOrNil` | 安全获取第一个元素 |
+| `array.xp.lastOrNil` | 安全获取最后一个元素 |
+| `array.xp.isEmptyOrNil` | 检查数组是否为空 |
+| `array.xp.countSafe` | 安全获取元素数量 |
+| `array.xp.isValidIndex(index:)` | 检查索引是否有效 |
 
 ---
 
@@ -141,12 +164,12 @@ view.removeAllSubviews()
 
 ## Codable+Extension
 
-**功能说明**：提供基于 Swift Codable 协议的序列化/反序列化扩展，支持 JSON 字符串和字典的相互转换。
+**功能说明**：提供基于 Swift Codable 协议的序列化/反序列化扩展，支持 JSON 字符串和字典的相互转换，使用 `.xp` 命名空间调用。
 
 **使用示例**：
 ```swift
-// 定义遵循 HandyCodable 协议的模型
-struct User: HandyCodable {
+// 定义遵循 Codable 协议的模型（标准 Swift 协议）
+struct User: Codable {
     var id: Int
     var name: String
     var email: String?
@@ -154,21 +177,43 @@ struct User: HandyCodable {
 
 // 从 JSON 字符串解码
 let jsonString = "{\"id\": 1, \"name\": \"John\", \"email\": \"john@example.com\"}"
-if let user = User.decode(from: jsonString) {
+if let user = User.xp.decode(from: jsonString) {
     print(user.name) // 输出 "John"
+}
+
+// 从 Data 解码
+if let user = User.xp.decode(from: data) {
+    print(user.name)
 }
 
 // 编码为 JSON 字符串
 let user = User(id: 2, name: "Jane", email: "jane@example.com")
-if let jsonString = user.encodeToJSONString(prettyPrint: true) {
+if let jsonString = user.xp.encodeToJSONString(prettyPrint: true) {
     print(jsonString)
 }
 
 // 编码为 JSON 字典
-if let jsonDict = user.encodeToJSON() {
+if let jsonDict = user.xp.encodeToJSON() {
     print(jsonDict)
 }
+
+// 便捷属性
+let jsonStr = user.xp.jsonString // 普通 JSON 字符串
+let prettyStr = user.xp.prettyJSONString // 美化的 JSON 字符串
+let jsonDict = user.xp.jsonDictionary // JSON 字典
 ```
+
+**主要方法**：
+
+| 方法 | 说明 |
+|------|------|
+| `Type.xp.decode(from:)` | 从 JSON 字符串解码为对象 |
+| `Type.xp.decode(from:)` | 从 Data 解码为对象 |
+| `instance.xp.encodeToJSONString(prettyPrint:)` | 编码为 JSON 字符串 |
+| `instance.xp.encodeToJSON(prettyPrint:)` | 编码为 JSON 字典 |
+| `instance.xp.jsonString` | 便捷属性：获取 JSON 字符串 |
+| `instance.xp.prettyJSONString` | 便捷属性：获取美化的 JSON 字符串 |
+| `instance.xp.jsonDictionary` | 便捷属性：获取 JSON 字典 |
 
 ---
 

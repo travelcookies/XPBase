@@ -184,7 +184,10 @@ public struct XPTime {
     public static func firstWeekDayInCurrentMonth() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM"
-        let date = dateFormatter.date(from: String(Date().xp.year) + "-" + String(Date().xp.month))
+        let currentDate = Date()
+        let year = currentDate.xp.year
+        let month = currentDate.xp.month
+        let date = dateFormatter.date(from: "\(year)-\(month)")
         let calender = Calendar(identifier: .gregorian)
         let comps = (calender as NSCalendar?)?.components(.weekday, from: date!)
         var week = comps?.weekday
