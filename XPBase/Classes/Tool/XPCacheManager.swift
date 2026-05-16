@@ -1,5 +1,8 @@
 import Foundation
 
+/// 日志记录器
+private let cacheLogger = XPLogger(category: "Cache")
+
 /// 缓存管理器
 /// 提供基于文件系统的缓存功能，支持线程安全的读写操作
 /// 
@@ -41,7 +44,7 @@ public class XPCacheManager {
         do {
             try fileManager.createDirectory(atPath: cacheDirectory, withIntermediateDirectories: true, attributes: nil)
         } catch {
-            print("Error creating cache directory: \(error)")
+            cacheLogger.error("Error creating cache directory: \(error.localizedDescription)")
         }
     }
     
@@ -52,7 +55,7 @@ public class XPCacheManager {
                 let data = try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
                 try data.write(to: URL(fileURLWithPath: filePath))
             } catch {
-                print("Error saving cache: \(error)")
+                cacheLogger.error("Error saving cache: \(error.localizedDescription)")
             }
         }
     }
@@ -68,7 +71,7 @@ public class XPCacheManager {
                 let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
                 return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
             } catch {
-                print("Error loading cache: \(error)")
+                cacheLogger.error("Error loading cache: \(error.localizedDescription)")
                 return nil
             }
         }
@@ -80,7 +83,7 @@ public class XPCacheManager {
             do {
                 try FileManager.default.removeItem(atPath: filePath)
             } catch {
-                print("Error removing cache: \(error)")
+                cacheLogger.error("Error removing cache: \(error.localizedDescription)")
             }
         }
     }
@@ -91,7 +94,7 @@ public class XPCacheManager {
                 try FileManager.default.removeItem(atPath: cacheDirectory)
                 createDirectoryIfNeeded()
             } catch {
-                print("Error removing all cache: \(error)")
+                cacheLogger.error("Error removing all cache: \(error.localizedDescription)")
             }
         }
     }

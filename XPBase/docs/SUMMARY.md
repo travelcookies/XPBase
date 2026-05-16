@@ -53,6 +53,7 @@
   - XPNetworkLoggerPlugin
   - XPBaseModel
   - XPReachableManager
+  - XPReachableManagerView
 - [Log 模块](log.md)
   - XPLogger
 - [Navigator 模块](navigator.md)
@@ -71,13 +72,13 @@
 
 | 模块 | 文件数 | 说明 |
 |------|--------|------|
-| **UIKit** | 10 | 界面组件和工具类 |
-| **Tool** | 14 | 工具类集合 |
-| **Extensions** | 5 | Swift 扩展 |
-| **Network** | 3 | 网络相关工具 |
+| **UIKit** | 12 | 界面组件和工具类 |
+| **Tool** | 19 | 工具类集合 |
+| **Extensions** | 13 | Swift 扩展 |
+| **Network** | 5 | 网络相关工具 |
 | **Log** | 1 | 日志工具 |
 | **Navigator** | 1 | 路由导航 |
-| **MediaPicker** | 1 | 媒体选择 |
+| **MediaPicker** | 2 | 媒体选择 |
 | **WebView** | 1 | 网页组件 |
 | **Toast** | 1 | 提示组件 |
 
@@ -116,5 +117,5 @@ import XPBase
 
 ---
 
-**文档版本**: 1.3.0  
-**最后更新**: 2026-05-14
+**文档版本**: 1.3.2  
+**最后更新**: 2026-05-16

@@ -27,6 +27,9 @@ public class XPReachableManagerView: UIView {
     /// - Returns: 从XIB加载的视图实例
     public class func initView() -> XPReachableManagerView {
         let bundle = Bundle(for: self)
-        return bundle.loadNibNamed("XPReachableManagerView", owner: nil, options: nil)?.first as! XPReachableManagerView
+        guard let view = bundle.loadNibNamed("XPReachableManagerView", owner: nil, options: nil)?.first as? XPReachableManagerView else {
+            fatalError("Unable to load nib named 'XPReachableManagerView'")
+        }
+        return view
     }
 }

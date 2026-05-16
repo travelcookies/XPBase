@@ -9,6 +9,9 @@ import GKNavigationBar
 import UIKit
 import WebKit
 
+/// 日志记录器
+private let webViewLogger = XPLogger(category: "WebView")
+
 /// Web页面控制器样式枚举
 public enum XPWebPageControllerStyle {
     /// 普通样式
@@ -218,19 +221,13 @@ extension XPWebPageController {
             handleGetToken()
 
         default:
-            print("未处理的JavaScript消息: \(message.name)")
+            webViewLogger.debug("未处理的JavaScript消息: \(message.name)")
         }
     }
 
     /// 处理商品详情跳转
     private func handleGoodsDetailAction(goodsId: String) {
-        // 这里可以根据实际需求实现商品详情页面的跳转
-        print("跳转到商品详情页面，商品ID: \(goodsId)")
-        // 示例代码：
-        // let vc = SZStoresProductDetailsViewController()
-        // vc.hidesBottomBarWhenPushed = true
-        // vc.viewModel.goodsId = goodsId
-        // navigationController?.pushViewController(vc, animated: true)
+        webViewLogger.debug("跳转到商品详情页面，商品ID: \(goodsId)")
     }
 
     /// 处理商品分类跳转
@@ -243,24 +240,14 @@ extension XPWebPageController {
 
     /// 处理获取Token
     private func handleGetToken() {
-        // 这里可以根据实际需求实现获取Token并返回给JavaScript
-        print("获取Token")
-        // 示例代码：
-        // let userInfo: UserModel? = UserInfoManager.shared.userInfoGet()
-        // guard let token = userInfo?.token, !token.isEmpty else {
-        //     return
-        // }
-        // let inputJS = "getToken('\(token)')"
-        // webView.evaluateJavaScript(inputJS) { response, error in
-        //     print("返回Token结果: \(response ?? "无"), 错误: \(error?.localizedDescription ?? "无")
-        // }
+        webViewLogger.debug("获取Token")
     }
 }
 
 // MARK: - WKScriptMessageHandler
 extension XPWebPageController: WKScriptMessageHandler {
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print("JavaScript消息: \(message.name), 内容: \(message.body)")
+        webViewLogger.debug("JavaScript消息: \(message.name), 内容: \(message.body)")
         handleScriptMessage(message)
     }
 }

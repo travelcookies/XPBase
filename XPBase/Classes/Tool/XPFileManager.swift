@@ -1,5 +1,8 @@
 import Foundation
 
+/// 日志记录器
+private let logger = XPLogger(category: "FileManager")
+
 /// 文件管理器工具类
 /// 提供文件系统常用操作，包括目录获取、文件删除、文件大小计算等
 /// 
@@ -66,7 +69,7 @@ public class XPFileManager: NSObject {
                 try fileManager.removeItem(atPath: filePath)
             }
         } catch {
-            print("Error removing files: \(error)")
+            logger.error("Error removing files: \(error.localizedDescription)")
         }
     }
     

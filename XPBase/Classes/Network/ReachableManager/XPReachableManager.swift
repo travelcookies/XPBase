@@ -7,8 +7,11 @@
 //
 
 import Foundation
-import Reachability // 引入第三方网络状态监测库
+import Reachability
 import SnapKit
+
+/// 日志记录器
+private let reachableLogger = XPLogger(category: "Network")
 
 /// 网络可达性管理类（XP 命名空间版本）
 /// 负责监听设备网络连接状态变化，并管理网络不可用提示视图的显示与隐藏
@@ -111,35 +114,33 @@ public class XPReachableManager {
         reachability.whenReachable = { reach in
             switch reach.connection {
             case .wifi:
-                print("Reachable via WiFi")
+                reachableLogger.debug("Reachable via WiFi")
                 self.stateUseless = false
             case .cellular:
-                print("Reachable via Cellular")
+                reachableLogger.debug("Reachable via Cellular")
                 self.stateUseless = false
             case .unavailable:
                 fallthrough
             default:
-                print("Network not reachable")
+                reachableLogger.debug("Network not reachable")
                 self.stateUseless = true
             }
         }
 
         reachability.whenUnreachable = { _ in
-            print("Not reachable")
+            reachableLogger.debug("Not reachable")
             self.stateUseless = true
         }
 
         do {
             try reachability.startNotifier()
         } catch {
-            print("Unable to start notifier")
+            reachableLogger.error("Unable to start notifier: \(error.localizedDescription)")
         }
     }
 
-    /// 析构函数
-    /// 当XPReachableManager实例被销毁时，停止网络状态监听以释放资源
     deinit {
-        print("reachability.stopNotifier()")
+        reachableLogger.debug("reachability.stopNotifier()")
         reachability?.stopNotifier()
     }
 }

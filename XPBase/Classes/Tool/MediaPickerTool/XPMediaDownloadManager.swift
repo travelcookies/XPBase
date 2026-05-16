@@ -2,6 +2,9 @@ import UIKit
 import Alamofire
 import Photos
 
+/// 日志记录器
+private let downloadLogger = XPLogger(category: "MediaDownload")
+
 /// 媒体类型枚举
 public enum XPMediaType {
     case image
@@ -319,7 +322,7 @@ public final class XPMediaDownloadManager: NSObject {
                 try fileManager.removeItem(at: fileURL)
             }
         } catch {
-            print("清理临时文件失败: \(error)")
+            downloadLogger.error("清理临时文件失败: \(error.localizedDescription)")
         }
     }
 }

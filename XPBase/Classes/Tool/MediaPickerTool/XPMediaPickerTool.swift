@@ -1,6 +1,9 @@
 import UIKit
 import MediaPlayer
 
+/// 日志记录器
+private let mediaLogger = XPLogger(category: "MediaPicker")
+
 /// MPMediaPickerController 工具类封装（XP 命名空间版本）
 /// 简化媒体库权限请求和媒体选择流程，自动处理权限状态
 ///
@@ -163,7 +166,7 @@ public class XPMediaPickerTool: NSObject {
     ) {
         // 确保 presentingViewController 仍然有效
         guard let presentingVC = self.presentingViewController else {
-            print("Error: Presenting view controller is nil.")
+            mediaLogger.error("Error: Presenting view controller is nil.")
             return
         }
 

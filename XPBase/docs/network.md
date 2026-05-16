@@ -84,3 +84,26 @@ XPReachableManager.shared.addListener { status in
     }
 }
 ```
+
+---
+
+## XPReachableManagerView
+
+**功能说明**：网络不可用提示视图，通过 XIB 文件创建的视图，用于在网络不可用时显示提示信息。
+
+**使用示例**：
+```swift
+// 创建并显示网络不可用提示视图
+let reachableView = XPReachableManagerView.initView()
+UIApplication.shared.keyWindow?.addSubview(reachableView)
+
+// 配合 XPReachableManager 使用（通常由管理器自动管理）
+// XPReachableManager.shared.startMonitoring()
+// 当网络不可用时，管理器会自动创建并显示此视图
+```
+
+**主要方法**：
+
+| 方法 | 说明 |
+|------|------|
+| `initView()` | 创建网络不可用提示视图实例，从 XIB 文件加载 |

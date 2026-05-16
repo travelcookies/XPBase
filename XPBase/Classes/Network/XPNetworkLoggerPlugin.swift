@@ -137,7 +137,8 @@ public final class XPNetworkLoggerPlugin: PluginType {
         if let handler = config.logHandler {
             handler(message)
         } else {
-            print(message)
+            let pluginLogger = XPLogger(category: "Network")
+            pluginLogger.debug(message)
         }
     }
 }
